@@ -10,8 +10,9 @@ const eventSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    picture: {
-      type: String,
+    image: {
+      type: Object,
+      required: true,
     },
     dateOfEvent: {
       type: Date,
