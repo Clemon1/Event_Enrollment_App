@@ -7,6 +7,7 @@ import adminRouter from "./routes/adminRoutes.js";
 import studentRouter from "./routes/studentAuthRouter.js";
 import eventRouter from "./routes/eventRouter.js";
 import bookingRouter from "./routes/bookingRoutes.js";
+
 const app = express();
 const PORT = process.env.PORT;
 // MongoDB Connection
