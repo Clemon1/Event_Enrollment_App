@@ -11,6 +11,8 @@ import pic1 from "../assets/pic1.jpg";
 import pic2 from "../assets/pic2.jpg";
 import pic3 from "../assets/pic3.jpg";
 import pic4 from "../assets/pic4.jpg";
+import pic5 from "../assets/pic5.jpg";
+import Navbar from "../components/navbar";
 const Home = () => {
   return (
     <Box
@@ -36,7 +38,8 @@ const Home = () => {
             sx={{
               width: "25%",
               background: "#03a075 !important",
-              fontWeight: 500,
+              color: "#ffffff !important",
+              fontWeight: 600,
               borderRadius: 4,
             }}>
             Get Started
@@ -100,15 +103,44 @@ const Home = () => {
       </Stack>
       <Container sx={{ width: "100%", height: "fit-content" }}>
         <Stack direction={"row"} sx={{ width: "100%" }}>
-          <Typography variant='h4' fontWeight={600} color={"#ffffff"}>
+          <Typography
+            variant='h4'
+            fontWeight={600}
+            paddingBottom={5}
+            color={"#ffffff"}>
             About Us
           </Typography>
         </Stack>
-        <Stack direction={"row"} gap={2} sx={{ height: "60vh" }}>
+        <Stack direction={"row"} gap={30} sx={{ height: "70vh" }}>
           <Box
-            sx={{ width: "50%", height: "100%", background: "#ffffff" }}></Box>
-          <Box
-            sx={{ width: "50%", height: "100%", background: "#ffffff" }}></Box>
+            sx={{
+              width: "24%",
+              height: "60%",
+              borderRadius: 5,
+              background: "#03a075!important",
+            }}>
+            <Card
+              sx={{
+                width: "35%",
+                height: "50%",
+                position: "absolute",
+                borderRadius: 5,
+
+                top: "727px",
+                left: "124px ",
+              }}>
+              <CardMedia
+                sx={{ height: "100%", objectFit: "cover" }}
+                image={pic5}
+                title='pic5'
+              />
+            </Card>
+          </Box>
+          <Box sx={{ width: "50%", height: "100%" }}>
+            <Typography variant='h5' sx={{ color: "#ffffff", fontWeight: 500 }}>
+              lorem ipsum
+            </Typography>
+          </Box>
         </Stack>
       </Container>
     </Box>
