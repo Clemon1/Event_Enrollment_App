@@ -12,7 +12,7 @@ import pic2 from "../assets/pic2.jpg";
 import pic3 from "../assets/pic3.jpg";
 import pic4 from "../assets/pic4.jpg";
 import pic5 from "../assets/pic5.jpg";
-import Navbar from "../components/navbar";
+import smilePic from "../assets/smile.jpg";
 const Home = () => {
   return (
     <Box
@@ -26,10 +26,10 @@ const Home = () => {
         <Stack
           direction={"column"}
           sx={{ width: "50%", alignItems: "flex-start", paddingTop: "8rem" }}>
-          <Typography variant='h6' fontWeight={500} color={"#ffffff"}>
+          <Typography variant='h6' fontWeight={500} color={"#edf7ff"}>
             All fun starts here.
           </Typography>
-          <Typography variant='h2' fontWeight={500} color={"#ffffff"}>
+          <Typography variant='h2' fontWeight={500} color={"#edf7ff"}>
             Book your <br />
             Tickets for Events!
           </Typography>
@@ -38,7 +38,7 @@ const Home = () => {
             sx={{
               width: "25%",
               background: "#03a075 !important",
-              color: "#ffffff !important",
+              color: "#edf7ff !important",
               fontWeight: 600,
               borderRadius: 4,
             }}>
@@ -107,8 +107,8 @@ const Home = () => {
             variant='h4'
             fontWeight={600}
             paddingBottom={5}
-            color={"#ffffff"}>
-            About Us
+            color={"#edf7ff"}>
+            How it works
           </Typography>
         </Stack>
         <Stack direction={"row"} gap={30} sx={{ height: "70vh" }}>
@@ -116,7 +116,7 @@ const Home = () => {
             sx={{
               width: "24%",
               height: "60%",
-              borderRadius: 5,
+
               background: "#03a075!important",
             }}>
             <Card
@@ -124,8 +124,6 @@ const Home = () => {
                 width: "35%",
                 height: "50%",
                 position: "absolute",
-                borderRadius: 5,
-
                 top: "727px",
                 left: "124px ",
               }}>
@@ -136,10 +134,64 @@ const Home = () => {
               />
             </Card>
           </Box>
-          <Box sx={{ width: "50%", height: "100%" }}>
-            <Typography variant='h5' sx={{ color: "#ffffff", fontWeight: 500 }}>
-              lorem ipsum
+          <Stack
+            direction={"column"}
+            justifyContent={"center"}
+            sx={{ width: "50%", height: "60%" }}>
+            <Typography
+              variant='h5'
+              sx={{ color: "#ffffff", fontSize: "1.7rem", fontWeight: 400 }}>
+              Discover comprehensive <br />
+              list of upcoming events such as: <br />
+              concerts, festivals, sports games, and other gatherings.
             </Typography>
+          </Stack>
+        </Stack>
+      </Container>
+      <Container sx={{ width: "100%", height: "fit-content" }}>
+        <Stack direction={"row"} sx={{ width: "100%" }}>
+          <Typography
+            variant='h4'
+            fontWeight={600}
+            paddingBottom={4}
+            color={"#edf7ff"}>
+            Benefits
+          </Typography>
+        </Stack>
+        <Stack direction={"row"} gap={3} sx={{ height: "70vh" }}>
+          <Stack
+            direction={"column"}
+            justifyContent={"center"}
+            sx={{ width: "50%", height: "90%" }}>
+            <Typography
+              variant='h5'
+              sx={{ color: "#ffffff", fontSize: "1.7rem", fontWeight: 400 }}>
+              Keep yourself updated.
+              <br />
+              Safe, Secure, Reliable ticketing.
+              <br />
+              Get access to private perks.
+              <br />
+              Choose the event you want to be
+              <br />
+              part with.
+            </Typography>
+          </Stack>
+          <Box sx={{ width: "48%", height: "100%", bgcolor: "#009FFF" }}>
+            <Card
+              sx={{
+                width: "43%",
+                height: "70%",
+                position: "absolute",
+                top: "1210px",
+                right: "130px",
+              }}>
+              <CardMedia
+                sx={{ height: "100%", objectFit: "cover" }}
+                image={smilePic}
+                title='smile'
+              />
+            </Card>
           </Box>
         </Stack>
       </Container>

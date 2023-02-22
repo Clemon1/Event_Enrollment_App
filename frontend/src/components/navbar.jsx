@@ -11,8 +11,16 @@ const Navbar = () => {
         padding: "2px 65px",
       }}>
       <Toolbar>
-        <Typography variant='h4' sx={{ flexGrow: 1, fontWeight: 600 }}>
-          Event-O
+        <Typography
+          variant='h4'
+          sx={{
+            flexGrow: 1,
+            fontWeight: 600,
+            color: "#edf7ff",
+          }}>
+          <Link to={"/"} style={{ textDecoration: "none", color: "#edf7ff" }}>
+            Event-O
+          </Link>
         </Typography>
 
         <Stack direction={"row"} gap={1}>
@@ -21,11 +29,11 @@ const Navbar = () => {
           <Button variant='inherit'>Event</Button>
         </Stack>
         <Stack width={"20%"} direction={"row"} gap={1}>
-          <Link to='/login'>
+          <Link to='/login' style={{ textDecoration: "none" }}>
             <Button
               variant='contained'
               sx={{
-                background: "#ffffff !important",
+                background: "#edf7ff !important",
                 color: "#030f18",
                 fontWeight: 600,
                 borderRadius: 4,
