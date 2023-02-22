@@ -31,6 +31,9 @@ export const adminRegister = async (req, res) => {
 export const adminLogin = async (req, res) => {
   try {
     const { email, password } = req.body;
+    if (!email || !password) {
+      return res.status(400).json("Cannot submit empty credentials");
+    }
     const user = await User.findOne({ email });
     if (!user) return res.status(400).json("User does not exist");
     const comparePassword = await bcrypt.compare(password, user.password);

@@ -13,6 +13,17 @@ import Home from "./pages/home";
 import Login from "./pages/login";
 
 const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#030f18",
+    },
+    secondary: {
+      main: "#009FFF",
+    },
+    success: {
+      main: "#03a075",
+    },
+  },
   Typography: {
     fontFamily: "Montserrat+Alternates",
     fontWeightLight: 200,
