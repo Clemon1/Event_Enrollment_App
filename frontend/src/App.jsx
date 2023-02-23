@@ -11,11 +11,13 @@ import "./App.css";
 import Navbar from "./components/navbar";
 import Home from "./pages/home";
 import Login from "./pages/login";
+import Register from "./pages/register";
 
 const theme = createTheme({
   palette: {
     primary: {
       main: "#030f18",
+      light: "#edf7ff",
     },
     secondary: {
       main: "#009FFF",
@@ -39,6 +41,7 @@ function App() {
       <Route path='/' element={<Root />}>
         <Route index element={<Home />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
       </Route>,
     ),
   );

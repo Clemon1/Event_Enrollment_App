@@ -7,6 +7,7 @@ import {
   Button,
   Container,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 import pic1 from "../assets/pic1.jpg";
 import pic2 from "../assets/pic2.jpg";
 import pic3 from "../assets/pic3.jpg";
@@ -33,17 +34,20 @@ const Home = () => {
             Book your <br />
             Tickets for Events!
           </Typography>
-          <Button
-            variant='contained'
-            sx={{
-              width: "25%",
-              background: "#03a075 !important",
-              color: "#edf7ff !important",
-              fontWeight: 600,
-              borderRadius: 4,
-            }}>
-            Get Started
-          </Button>
+          <Link to='/register' style={{ textDecoration: "none" }}>
+            <Button
+              variant='contained'
+              sx={{
+                background: "#03a075 !important",
+                color: "#edf7ff !important",
+                fontWeight: 600,
+                borderRadius: 4,
+                padding: 1,
+                paddingX: 3,
+              }}>
+              Get Started
+            </Button>
+          </Link>
         </Stack>
         <Stack
           direction={"row"}
