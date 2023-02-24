@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <AppBar
-      position='static'
+      position='fixed'
       sx={{
         width: "100%",
         height: 65,
+        top: 0,
+        zIndex: 300,
         background: "#030f18",
         padding: "2px 65px",
       }}>

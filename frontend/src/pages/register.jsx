@@ -13,6 +13,7 @@ const Register = () => {
     <Stack
       direction={"row"}
       width={"100%"}
+      marginTop={"65px"}
       justifyContent={"center"}
       height={"100vh"}
       bgcolor={"primary.main"}
@@ -101,7 +102,11 @@ const Register = () => {
               background: "#03a075",
               borderRadius: 4,
               color: "#ffffff",
-              fontWeight: 500,
+              fontWeight: 600,
+              ":hover": {
+                background: "#ffffff",
+                color: "#030f18",
+              },
             }}>
             Register
           </Button>

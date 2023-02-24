@@ -12,6 +12,7 @@ import Navbar from "./components/navbar";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Register from "./pages/register";
+import Dashboard from "./pages/dashboard";
 
 const theme = createTheme({
   palette: {
@@ -21,6 +22,7 @@ const theme = createTheme({
     },
     secondary: {
       main: "#009FFF",
+      light: "#082036",
     },
     success: {
       main: "#03a075",
@@ -42,6 +44,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/home' element={<Dashboard />} />
       </Route>,
     ),
   );

@@ -13,6 +13,7 @@ const Login = () => {
     <Stack
       direction={"row"}
       width={"100%"}
+      marginTop={"65px"}
       justifyContent={"center"}
       height={"100vh"}
       bgcolor={"primary.main"}
@@ -21,8 +22,9 @@ const Login = () => {
         sx={{
           width: ["70%", "75%", "80%", "40%"],
           borderRadius: 3,
-          height: "60vh",
+          height: "fit-content",
           bgcolor: "#082036",
+
           padding: 2,
         }}>
         <form>
@@ -81,7 +83,11 @@ const Login = () => {
               background: "#03a075",
               borderRadius: 4,
               color: "#ffffff",
-              fontWeight: 500,
+              fontWeight: 600,
+              ":hover": {
+                background: "#ffffff",
+                color: "#030f18",
+              },
             }}>
             Login
           </Button>

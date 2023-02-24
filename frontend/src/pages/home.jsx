@@ -18,6 +18,7 @@ const Home = () => {
   return (
     <Box
       sx={{
+        marginTop: "65px",
         background: "#030f18",
         width: "100%",
         height: "fit-content",
@@ -57,7 +58,7 @@ const Home = () => {
               width: "20%",
               height: 250,
               bgcolor: "#ffffff",
-              borderRadius: 3,
+              borderRadius: 1,
               position: "absolute",
               left: "675px",
             }}>
@@ -73,11 +74,15 @@ const Home = () => {
               height: 250,
               bgcolor: "#ffffff",
               position: "absolute",
-              borderRadius: 3,
+              borderRadius: 1,
               right: "120px",
               bottom: "250px",
             }}>
-            <CardMedia sx={{ height: "100%" }} image={pic1} title='pic1' />
+            <CardMedia
+              sx={{ height: "100%", loading: "lazy" }}
+              image={pic1}
+              title='pic1'
+            />
           </Card>
           <Card
             sx={{
@@ -85,7 +90,7 @@ const Home = () => {
               height: 250,
               bgcolor: "#ffffff",
               position: "absolute",
-              borderRadius: 3,
+              borderRadius: 1,
               top: "340px",
               left: "675px",
             }}>
@@ -97,7 +102,7 @@ const Home = () => {
               height: 250,
               bgcolor: "#ffffff",
               position: "absolute",
-              borderRadius: 3,
+              borderRadius: 1,
               right: "120px",
               bottom: "-12px",
             }}>
