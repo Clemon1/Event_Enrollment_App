@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Box,
   Typography,
@@ -6,9 +7,57 @@ import {
   Input,
   InputLabel,
   Button,
+  Snackbar,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+
 const Register = () => {
+  const [fullname, setFullname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [state, setState] = useState({
+    open: false,
+    vertical: "top",
+    horizontal: "center",
+  });
+  const { vertical, horizontal, open } = state;
+
+  const handleClose = () => {
+    setState({ ...state, open: false });
+  };
+  const navigate = useNavigate();
+  const URL = "http://localhost:4000/student/register";
+  const body = {
+    fullname,
+    email,
+    password,
+  };
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      const res = axios.post(URL, body);
+      const data = await res.data;
+      <Snackbar
+        anchorOrigin={{ vertical, horizontal }}
+        open={open}
+        onClose={handleClose}
+        message='SignUp succesfully, please login'
+        key={vertical + horizontal}
+      />;
+      console.log(data);
+      navigate("/home");
+    } catch (err) {
+      console.log(err.response.message);
+      <Snackbar
+        anchorOrigin={{ vertical, horizontal }}
+        open={open}
+        onClose={handleClose}
+        message={"error somewhere"}
+        key={vertical + horizontal}
+      />;
+    }
+  };
   return (
     <Stack
       direction={"row"}
@@ -26,7 +75,7 @@ const Register = () => {
           bgcolor: "#082036",
           padding: 2,
         }}>
-        <form>
+        <form onSubmit={handleRegister}>
           <Typography
             variant='h4'
             fontWeight={500}
@@ -44,6 +93,7 @@ const Register = () => {
               Full Name
             </InputLabel>
             <Input
+              onChange={(e) => setFullname(e.target.value)}
               sx={{
                 background: "#030f18",
                 padding: 1,
@@ -65,6 +115,7 @@ const Register = () => {
             </InputLabel>
             <Input
               type='email'
+              onChange={(e) => setEmail(e.target.value)}
               sx={{
                 background: "#030f18",
                 padding: 1,
@@ -83,6 +134,7 @@ const Register = () => {
               Password
             </InputLabel>
             <Input
+              onChange={(e) => setPassword(e.target.value)}
               id='my-input'
               type='password'
               aria-describedby='my-helper-text'
@@ -96,6 +148,7 @@ const Register = () => {
             />
           </FormControl>
           <Button
+            type='submit'
             sx={{
               width: "100%",
               padding: 1,
