@@ -2,6 +2,7 @@ import * as dotenv from "dotenv";
 dotenv.config();
 import express from "express";
 import mongoose from "mongoose";
+import cors from "cors";
 import bodyParser from "body-parser";
 import adminRouter from "./routes/adminRoutes.js";
 import studentRouter from "./routes/studentAuthRouter.js";
@@ -23,6 +24,7 @@ const dbConnect = async () => {
 dbConnect();
 
 // Middlewares
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());

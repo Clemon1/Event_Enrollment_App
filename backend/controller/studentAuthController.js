@@ -48,6 +48,7 @@ export const studentLogin = async (req, res) => {
     const token = await jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
       expiresIn: "1hr",
     });
+
     res.status(200).json({ message: "Logged in succesfully", user, token });
   } catch (err) {
     res.status(500).json(err.message);
