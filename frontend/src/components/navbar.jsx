@@ -1,6 +1,15 @@
 import { AppBar, Typography, Stack, Toolbar, Button } from "@mui/material";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { LogOut, currentUSer } from "../features/authSlice";
+
 const Navbar = () => {
+  const user = useSelector(currentUSer);
+  const dispatch = useDispatch();
+  const handlelogOut = () => {
+    dispatch(LogOut());
+  };
+
   return (
     <AppBar
       position='fixed'
@@ -24,27 +33,23 @@ const Navbar = () => {
             Event-O
           </Link>
         </Typography>
-
-        <Stack
-          sx={{
-            width: ["100%", "100%", "fit-content"],
-            background: ["#04263A", "#04263A", "inherit"],
-            position: ["absolute", "absolute", "static"],
-            top: 60,
-            zIndex: 100,
-            padding: [2, 4],
-            transform: ["translateX(-550px)", "translateX(-905px)", "unset"],
-            left: 0,
-            flexDirection: ["column", "column", "row", "row"],
-            height: ["fit-content", "fit-content", "fit-content"],
-            gap: 2,
-          }}>
-          <Button variant='inherit'>Home</Button>
-          <Button variant='inherit'>About</Button>
-          <Button variant='inherit'>Event</Button>
-
-          <Link to='/login' style={{ textDecoration: "none" }}>
+        {user ? (
+          <Stack
+            sx={{
+              width: ["100%", "100%", "fit-content"],
+              background: ["#04263A", "#04263A", "inherit"],
+              position: ["absolute", "absolute", "static"],
+              top: 60,
+              zIndex: 100,
+              padding: [2, 4],
+              transform: ["translateX(-550px)", "translateX(-905px)", "unset"],
+              left: 0,
+              flexDirection: ["column", "column", "row", "row"],
+              height: ["fit-content", "fit-content", "fit-content"],
+              gap: 2,
+            }}>
             <Button
+              onClick={handlelogOut}
               variant='contained'
               sx={{
                 background: "#edf7ff !important",
@@ -53,21 +58,50 @@ const Navbar = () => {
                 fontWeight: 600,
                 borderRadius: 4,
               }}>
-              login
+              logOut
             </Button>
-          </Link>
-          <Link to='/register' style={{ textDecoration: "none" }}>
-            <Button
-              variant='contained'
-              sx={{
-                background: "#03a075 !important",
-                fontWeight: 600,
-                borderRadius: 4,
-              }}>
-              Register
-            </Button>
-          </Link>
-        </Stack>
+          </Stack>
+        ) : (
+          <Stack
+            sx={{
+              width: ["100%", "100%", "fit-content"],
+              background: ["#04263A", "#04263A", "inherit"],
+              position: ["absolute", "absolute", "static"],
+              top: 60,
+              zIndex: 100,
+              padding: [2, 4],
+              transform: ["translateX(-550px)", "translateX(-905px)", "unset"],
+              left: 0,
+              flexDirection: ["column", "column", "row", "row"],
+              height: ["fit-content", "fit-content", "fit-content"],
+              gap: 2,
+            }}>
+            <Link to='/login' style={{ textDecoration: "none" }}>
+              <Button
+                variant='contained'
+                sx={{
+                  background: "#edf7ff !important",
+                  color: "#030f18",
+                  width: "100%",
+                  fontWeight: 600,
+                  borderRadius: 4,
+                }}>
+                login
+              </Button>
+            </Link>
+            <Link to='/register' style={{ textDecoration: "none" }}>
+              <Button
+                variant='contained'
+                sx={{
+                  background: "#03a075 !important",
+                  fontWeight: 600,
+                  borderRadius: 4,
+                }}>
+                Register
+              </Button>
+            </Link>
+          </Stack>
+        )}
       </Toolbar>
     </AppBar>
   );

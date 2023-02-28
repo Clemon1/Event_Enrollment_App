@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { useSelector } from "react-redux";
 
 const user = localStorage.getItem("User");
 
@@ -21,7 +20,6 @@ export const authSlice = createSlice({
       state.isLoading = false;
       state.User = action.payload;
       localStorage.setItem("User", JSON.stringify(state.User));
-      state.isError = false;
     },
     Rejected: (state) => {
       state.isLoading = false;
@@ -37,5 +35,5 @@ export const authSlice = createSlice({
 });
 
 export const { Pending, Success, Rejected, LogOut } = authSlice.actions;
-
+export const currentUSer = (state) => state.user.User;
 export default authSlice.reducer;
