@@ -18,8 +18,19 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [open, setOpen] = useState(false);
+  const [open1, setOpen1] = useState(false);
+  const [message, setMessage] = useState("");
+  const [message1, setMessage1] = useState("");
+  const [erroR, setErroR] = useState(false);
 
   const navigate = useNavigate();
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen1(false);
+    setOpen(false);
+  };
   const URL = "http://localhost:4000/student/register";
   const body = {
     fullname,
@@ -31,19 +42,17 @@ const Register = () => {
       e.preventDefault();
       const res = await axios.post(URL, body);
       const data = await res.data;
-      setOpen(true);
-      <Snackbar open={open} autoHideDuration={6000} message='it works' />;
+      setMessage1("Registered Succesfully");
 
       navigate("/login");
 
+      setOpen1(true);
       console.log(data);
     } catch (error) {
+      setErroR(true);
+      setMessage(error.response.data);
       setOpen(true);
-      <Snackbar
-        open={open}
-        autoHideDuration={6000}
-        message={error.response.data}
-      />;
+
       console.log(error.response.data);
     }
   };
@@ -169,6 +178,61 @@ const Register = () => {
           </Typography>
         </form>
       </Box>
+      <Snackbar
+        open={open1}
+        autoHideDuration={4000}
+        ClickAwayListenerProps={{
+          mouseEvent: false,
+          touchEvent: false,
+        }}
+        action={
+          <>
+            <Button
+              size='small'
+              onClick={handleClose}
+              sx={{
+                color: "primary.light",
+                fontSize: 14,
+                fontWeight: 500,
+              }}>
+              X
+            </Button>
+          </>
+        }>
+        <Alert onClose={handleClose} severity='success' sx={{ width: "100%" }}>
+          {message1}
+        </Alert>
+      </Snackbar>
+      {erroR && (
+        <>
+          <Snackbar
+            open={open}
+            autoHideDuration={4000}
+            onClose={handleClose}
+            action={
+              <>
+                <Button
+                  size='small'
+                  onClick={handleClose}
+                  sx={{
+                    color: "primary.light",
+                    fontSize: 14,
+                    fontWeight: 500,
+                  }}>
+                  X
+                </Button>
+              </>
+            }>
+            <Alert
+              onClose={handleClose}
+              severity='error'
+              sx={{ width: "100%" }}>
+              {message}
+            </Alert>
+          </Snackbar>
+        </>
+      )}
+      ;
     </Stack>
   );
 };

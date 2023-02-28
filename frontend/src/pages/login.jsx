@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Box,
   Typography,
@@ -5,10 +6,53 @@ import {
   FormControl,
   Input,
   InputLabel,
+  Snackbar,
+  Alert,
   Button,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { Pending, Success, Rejected } from "../features/authSlice";
+import { useDispatch } from "react-redux";
+import axios from "axios";
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [open, setOpen] = useState(false);
+  const [open1, setOpen1] = useState(false);
+  const [message, setMessage] = useState("");
+  const [message1, setMessage1] = useState("");
+  const [erroR, setErroR] = useState(false);
+  const URL = "http://localhost:4000/student/login";
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
+    setOpen1(false);
+  };
+
+  const handleLogin = async (e) => {
+    try {
+      e.preventDefault();
+      dispatch(Pending());
+      const res = await axios.post(URL, {
+        email,
+        password,
+      });
+      dispatch(await Success(res.data));
+      setMessage("login Succesfully");
+
+      navigate("/home");
+      setOpen(true);
+    } catch (error) {
+      dispatch(Rejected(setMessage1(error.response.data)));
+      setErroR(true);
+      setOpen1(true);
+      console.log(error.response.data);
+    }
+  };
   return (
     <Stack
       direction={"row"}
@@ -45,6 +89,7 @@ const Login = () => {
               Email
             </InputLabel>
             <Input
+              onChange={(e) => setEmail(e.target.value)}
               type='email'
               sx={{
                 background: "#030f18",
@@ -64,6 +109,7 @@ const Login = () => {
               Password
             </InputLabel>
             <Input
+              onChange={(e) => setPassword(e.target.value)}
               id='my-input'
               type='password'
               aria-describedby='my-helper-text'
@@ -77,6 +123,8 @@ const Login = () => {
             />
           </FormControl>
           <Button
+            onClick={handleLogin}
+            type='submit'
             sx={{
               width: "100%",
               padding: 1,
@@ -107,6 +155,33 @@ const Login = () => {
           </Typography>
         </form>
       </Box>
+      <Snackbar
+        open={open}
+        onClose={handleClose}
+        autoHideDuration={4000}
+        action={
+          <>
+            <Button size='small'>X</Button>
+          </>
+        }>
+        <Alert severity='success'>{message}</Alert>
+      </Snackbar>
+
+      {erroR && (
+        <Snackbar
+          open={open1}
+          onClose={handleClose}
+          autoHideDuration={3000}
+          action={
+            <>
+              <Button size='small'>X</Button>
+            </>
+          }>
+          <Alert severity='error' onClose={handleClose}>
+            {message1}
+          </Alert>
+        </Snackbar>
+      )}
     </Stack>
   );
 };

@@ -7,6 +7,8 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import { useSelector } from "react-redux";
+
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import pic6 from "../assets/pic6.jpg";
@@ -14,6 +16,8 @@ import pic2 from "../assets/pic2.jpg";
 import LeftSideBar from "../components/leftSidebar";
 import RightSideBar from "../components/rightSidebar";
 const Dashboard = () => {
+  const currentUser = useSelector((state) => state.user.User);
+  console.log(currentUser);
   return (
     <Stack direction={"row"} marginTop={"65px"}>
       <LeftSideBar />
