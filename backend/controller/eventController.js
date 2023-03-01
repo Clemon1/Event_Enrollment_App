@@ -1,5 +1,6 @@
 import events from "../models/eventModel.js";
 import cloudinary from "../util/cloudinary.js";
+
 // get all events
 export const allEvents = async (req, res) => {
   try {
@@ -42,19 +43,19 @@ export const singleEvent = async (req, res) => {
 
 // Create an event
 export const createEvent = async (req, res) => {
-  const { title, description, image, dateOfEvent } = req.body;
+  const { title, description, dateOfEvent } = req.body;
+  const image = req.file.path;
+  console.log(image);
   try {
-    const cloudUpload = await cloudinary.uploader.upload(image, {
-      upload_preset: "eventApp",
-    });
+    const cloudUpload = await cloudinary.uploader.upload(image);
 
     const newEvent = new events({
       title,
       description,
       dateOfEvent,
-      image: cloudUpload,
+      image: cloudUpload.public_id,
     });
-
+    console.log(newEvent);
     const lastestEvent = await newEvent.save();
     console.log(lastestEvent);
     res.status(200).json(lastestEvent);
