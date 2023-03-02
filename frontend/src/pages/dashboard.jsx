@@ -29,12 +29,116 @@ const Dashboard = () => {
           marginLeft: "297px",
           bgcolor: "#04263a",
         }}>
-        {/* <Box
+        <Stack
+          direction={"row"}
+          alignItems={"center"}
+          justifyContent={"flex-start"}
+          gap={3}
           sx={{
             width: "100%",
-            bgcolor: "primary.main",
+            bgcolor: "inherit",
             height: "4.5rem",
-          }}></Box> */}
+            padding: 2,
+          }}>
+          <Stack
+            direction={"row"}
+            alignItems={"center"}
+            justifyContent={"flex-start"}
+            gap={3}
+            sx={{
+              width: "100%",
+              bgcolor: "inherit",
+              height: "100%",
+            }}>
+            <Button
+              sx={{
+                bgcolor: "primary.light",
+                color: "primary.main",
+                borderRadius: 8,
+                ":hover": {
+                  bgcolor: "primary.light",
+                  color: "primary.main",
+                },
+              }}>
+              Music
+            </Button>
+            <Button
+              sx={{
+                bgcolor: "primary.light",
+                color: "primary.main",
+                borderRadius: 8,
+                ":hover": {
+                  bgcolor: "primary.light",
+                  color: "primary.main",
+                },
+              }}>
+              Finance
+            </Button>
+            <Button
+              sx={{
+                bgcolor: "primary.light",
+                color: "primary.main",
+                borderRadius: 8,
+                ":hover": {
+                  bgcolor: "primary.light",
+                  color: "primary.main",
+                },
+              }}>
+              Gaming
+            </Button>
+            <Button
+              sx={{
+                bgcolor: "primary.light",
+                color: "primary.main",
+                borderRadius: 8,
+                ":hover": {
+                  bgcolor: "primary.light",
+                  color: "primary.main",
+                },
+              }}>
+              Technology
+            </Button>
+            <Button
+              sx={{
+                bgcolor: "primary.light",
+                color: "primary.main",
+                borderRadius: 8,
+                ":hover": {
+                  bgcolor: "primary.light",
+                  color: "primary.main",
+                },
+              }}>
+              Movies
+            </Button>
+            <Button
+              sx={{
+                bgcolor: "primary.light",
+                color: "primary.main",
+                borderRadius: 8,
+                ":hover": {
+                  bgcolor: "primary.light",
+                  color: "primary.main",
+                },
+              }}>
+              Sports
+            </Button>
+          </Stack>
+
+          <Stack
+            direction={"row"}
+            alignItems={"center"}
+            justifyContent={"flex-start"}
+            gap={3}
+            sx={{
+              width: "20%",
+              bgcolor: "inherit",
+              height: "100%",
+            }}>
+            <Button sx={{ color: "primary.light", fontWeight: 600 }}>
+              See all
+            </Button>
+          </Stack>
+        </Stack>
         {/* Home Content */}
         <Stack
           direction={"row"}

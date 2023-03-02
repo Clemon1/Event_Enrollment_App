@@ -7,7 +7,7 @@ const RightSideBar = () => {
       gap={2}
       sx={{
         width: "22%",
-        height: "100vh",
+        height: "90vh",
         bgcolor: "primary.main",
         paddingX: 2,
         position: "fixed",

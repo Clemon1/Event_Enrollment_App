@@ -7,3 +7,17 @@
   color: #ffffff;
   font-weight: 500;
 }
+#filled-basic1 {
+  color: #ffffff !important;
+  background: #04263a;
+  height: 7vh !important;
+  border-radius: 1.4rem;
+  font-weight: 500;
+  padding: 0 18px 0 18px;
+}
+
+#filled-basic1::placeholder {
+  color: #ffffff !important;
+  opacity: 0.8;
+  font-weight: 500;
+}

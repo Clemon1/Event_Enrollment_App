@@ -7,20 +7,23 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+
 import HomeIcon from "@mui/icons-material/Home";
-import BookmarkIcon from "@mui/icons-material/Bookmark";
+import CategoryIcon from "@mui/icons-material/Category";
 import LocalActivityIcon from "@mui/icons-material/LocalActivity";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
 const LeftSideBar = () => {
   return (
     <Stack
       direction={"column"}
       sx={{
         width: "22%",
-        height: "100vh",
+        height: "90vh",
         paddingX: 5,
-        paddingY: 1,
+        justifyContent: "space-between",
+        paddingY: 5,
         bgcolor: "primary.main",
         position: "fixed",
         top: 65,
@@ -45,12 +48,12 @@ const LeftSideBar = () => {
         <ListItem>
           <ListItemButton>
             <ListItemIcon>
-              <BookmarkIcon sx={{ fontSize: 30, color: "primary.light" }} />
+              <CategoryIcon sx={{ fontSize: 30, color: "primary.light" }} />
             </ListItemIcon>
             <Typography
               variant='body1'
               sx={{ fontSize: 18, fontWeight: 500, color: "primary.light" }}>
-              Bookmark
+              Categories
             </Typography>
           </ListItemButton>
         </ListItem>
@@ -83,6 +86,9 @@ const LeftSideBar = () => {
             </Typography>
           </ListItemButton>
         </ListItem>
+      </List>
+      <List>
+        <ListItem alignItems='center'></ListItem>
       </List>
     </Stack>
   );
