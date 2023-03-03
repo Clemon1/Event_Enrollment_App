@@ -8,7 +8,7 @@ import adminRouter from "./routes/adminRoutes.js";
 import studentRouter from "./routes/studentAuthRouter.js";
 import eventRouter from "./routes/eventRouter.js";
 import bookingRouter from "./routes/bookingRoutes.js";
-
+import categoryRouter from "./routes/categoryRoutes.js";
 const app = express();
 const PORT = process.env.PORT;
 // MongoDB Connection
@@ -33,6 +33,7 @@ app.use(bodyParser.json());
 app.use("/admin", adminRouter);
 app.use("/student", studentRouter);
 app.use("/event", eventRouter);
+app.use("/categories", categoryRouter);
 app.use("/booking", bookingRouter);
 
 app.listen(PORT, () => console.log(`app is running on PORT ${PORT}`));

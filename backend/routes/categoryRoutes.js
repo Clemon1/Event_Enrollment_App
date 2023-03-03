@@ -19,3 +19,5 @@ const upload = multer({ storage });
 router.get("/all", findCategory);
 router.get("/all/:id", findSingleCategory);
 router.post("/create", upload.single("image"), createCategory);
+
+export default router;

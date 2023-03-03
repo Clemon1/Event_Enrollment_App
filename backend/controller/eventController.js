@@ -43,7 +43,7 @@ export const singleEvent = async (req, res) => {
 
 // Create an event
 export const createEvent = async (req, res) => {
-  const { title, description, dateOfEvent } = req.body;
+  const { title, description, category, dateOfEvent } = req.body;
   const image = req.file.path;
   console.log(image);
   try {
@@ -52,6 +52,7 @@ export const createEvent = async (req, res) => {
     const newEvent = new events({
       title,
       description,
+      category,
       dateOfEvent,
       image: cloudUpload.public_id,
     });
