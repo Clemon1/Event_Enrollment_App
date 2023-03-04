@@ -34,7 +34,7 @@ export const createCategory = async (req, res) => {
 
     const newCat = new category({
       name,
-      image: imageUpload.public_id,
+      image: imageUpload.url,
     });
     const newCategory = await newCat.save();
     res.status(200).json(newCategory);

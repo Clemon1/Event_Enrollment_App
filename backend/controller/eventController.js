@@ -54,7 +54,7 @@ export const createEvent = async (req, res) => {
       description,
       category,
       dateOfEvent,
-      image: cloudUpload.public_id,
+      image: cloudUpload.url,
     });
     console.log(newEvent);
     const lastestEvent = await newEvent.save();

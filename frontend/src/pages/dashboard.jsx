@@ -16,9 +16,12 @@ import pic2 from "../assets/pic2.jpg";
 import LeftSideBar from "../components/leftSidebar";
 import RightSideBar from "../components/rightSidebar";
 import { currentUSer } from "../features/authSlice";
+import { useGetAllEventsQuery } from "../features/eventSlice";
 const Dashboard = () => {
   const user = useSelector(currentUSer);
   console.log(user);
+  const { data, isLoading } = useGetAllEventsQuery();
+  console.log(data);
   return (
     <Stack direction={"row"} marginTop={"65px"}>
       <LeftSideBar />
@@ -152,61 +155,64 @@ const Dashboard = () => {
             paddingX: "15px",
             paddingY: 2,
           }}>
-          <Card
-            sx={{
-              width: "32%",
-              display: "flex",
-              flexDirection: "column",
-              height: "56vh",
-              borderRadius: 3,
-            }}>
-            <CardMedia
-              component='img'
-              sx={{ width: "100%", height: "33vh" }}
-              image={pic6}
-            />
-            <Stack
-              direction={"row"}
-              gap={1}
-              sx={{
-                width: "100%",
-                height: "100%",
-                padding: "0.9rem",
-                bgcolor: "primary.main",
-              }}>
-              <Stack
-                direction={"column"}
-                gap={2}
+          {data &&
+            data.map((event) => (
+              <Card
+                key={event._id}
                 sx={{
-                  width: "100%",
-                  height: "100%",
+                  width: "32%",
+                  display: "flex",
+                  flexDirection: "column",
+                  height: "56vh",
+                  borderRadius: 3,
                 }}>
+                <CardMedia
+                  component='img'
+                  sx={{ width: "100%", height: "33vh" }}
+                  image={event.image}
+                />
                 <Stack
                   direction={"row"}
-                  width={"100%"}
-                  alignItems={"center"}
-                  justifyContent={"space-between"}>
-                  <Typography
-                    variant='subtitle2'
-                    color={"#f5365a"}
-                    fontWeight={600}>
-                    Fri, Mar 10th 2023
-                  </Typography>
-                  <Button>
-                    <BookmarkIcon sx={{ color: "primary.light" }} />
-                  </Button>
+                  gap={1}
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    padding: "0.9rem",
+                    bgcolor: "primary.main",
+                  }}>
+                  <Stack
+                    direction={"column"}
+                    gap={2}
+                    sx={{
+                      width: "100%",
+                      height: "100%",
+                    }}>
+                    <Stack
+                      direction={"row"}
+                      width={"100%"}
+                      alignItems={"center"}
+                      justifyContent={"space-between"}>
+                      <Typography
+                        variant='subtitle2'
+                        color={"#f5365a"}
+                        fontWeight={600}>
+                        Fri, Mar 10th 2023
+                      </Typography>
+                      <Button>
+                        <BookmarkIcon sx={{ color: "primary.light" }} />
+                      </Button>
+                    </Stack>
+
+                    <Typography
+                      variant='h5'
+                      color={"primary.light"}
+                      sx={{ fontWeight: 500 }}>
+                      {event.title.slice(0, 32)}
+                    </Typography>
+                  </Stack>
                 </Stack>
-
-                <Typography
-                  variant='h5'
-                  color={"primary.light"}
-                  sx={{ fontWeight: 500 }}>
-                  This is a test ticket system
-                </Typography>
-              </Stack>
-            </Stack>
-          </Card>
-
+              </Card>
+            ))}
           {/* Second Card for test */}
         </Stack>
       </Box>
