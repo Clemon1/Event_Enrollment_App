@@ -44,20 +44,20 @@ const LeftSideBar = () => {
             </ListItemButton>
           </ListItem>
         </NavLink>
-
-        <ListItem>
-          <ListItemButton>
-            <ListItemIcon>
-              <CategoryIcon sx={{ fontSize: 30, color: "primary.light" }} />
-            </ListItemIcon>
-            <Typography
-              variant='body1'
-              sx={{ fontSize: 18, fontWeight: 500, color: "primary.light" }}>
-              Categories
-            </Typography>
-          </ListItemButton>
-        </ListItem>
-
+        <NavLink to={"/categories"} style={{ textDecoration: "none" }}>
+          <ListItem>
+            <ListItemButton>
+              <ListItemIcon>
+                <CategoryIcon sx={{ fontSize: 30, color: "primary.light" }} />
+              </ListItemIcon>
+              <Typography
+                variant='body1'
+                sx={{ fontSize: 18, fontWeight: 500, color: "primary.light" }}>
+                Categories
+              </Typography>
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
         <ListItem>
           <ListItemButton>
             <ListItemIcon>

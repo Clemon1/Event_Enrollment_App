@@ -177,7 +177,7 @@ const Dashboard = () => {
                   sx={{
                     width: "100%",
                     height: "100%",
-                    padding: "0.9rem",
+                    padding: "0.5rem",
                     bgcolor: "primary.main",
                   }}>
                   <Stack
@@ -194,8 +194,8 @@ const Dashboard = () => {
                       justifyContent={"space-between"}>
                       <Typography
                         variant='subtitle2'
-                        color={"#f5365a"}
-                        fontWeight={600}>
+                        color={"#42f1c1"}
+                        fontWeight={500}>
                         Fri, Mar 10th 2023
                       </Typography>
                       <Button>
@@ -204,10 +204,10 @@ const Dashboard = () => {
                     </Stack>
 
                     <Typography
-                      variant='h5'
+                      variant='h6'
                       color={"primary.light"}
-                      sx={{ fontWeight: 500 }}>
-                      {event.title.slice(0, 32)}
+                      sx={{ fontWeight: 600 }}>
+                      {event.title.slice(0, 45)}
                     </Typography>
                   </Stack>
                 </Stack>
