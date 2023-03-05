@@ -1,4 +1,5 @@
 import {
+  Backdrop,
   Box,
   Card,
   CardContent,
@@ -9,7 +10,10 @@ import {
 
 import LeftSideBar from "../components/leftSidebar";
 import RightSideBar from "../components/rightSidebar";
+import { useGetCategoriesQuery } from "../features/categorySlice";
 const Category = () => {
+  const { data, isLoading } = useGetCategoriesQuery();
+  console.log(data);
   return (
     <Stack direction={"row"} marginTop={"65px"}>
       <LeftSideBar />
@@ -21,7 +25,11 @@ const Category = () => {
           bgcolor: "#04263a",
           padding: 2,
         }}>
-        <Typography variant='h5' color={"primary.light"}>
+        <Typography
+          variant='h5'
+          fontWeight={500}
+          color={"primary.light"}
+          paddingBottom={2}>
           All Categories
         </Typography>
         <Stack
@@ -34,19 +42,40 @@ const Category = () => {
           sx={{
             bgcolor: "#04263a",
           }}>
-          <Card
-            sx={{
-              borderRadius: 8,
-              width: "38%",
-              height: "40vh",
-              background: "#fafafa",
-            }}>
-            <CardMedia
-              sx={{ height: "100%" }}
-              image='/static/images/cards/contemplative-reptile.jpg'
-              title='green iguana'
-            />
-          </Card>
+          {data &&
+            data?.map((c) => (
+              <Card
+                key={c._id}
+                sx={{
+                  borderRadius: 8,
+                  width: "32%",
+                  height: "40vh",
+                  background: "#fafafa",
+                }}>
+                <CardMedia
+                  sx={{ height: "100%" }}
+                  image={c.image}
+                  title='green iguana'
+                />
+                <Stack
+                  direction={"row"}
+                  justifyContent={"center"}
+                  alignItems={"center"}
+                  sx={{
+                    width: "100%",
+                    height: "25%",
+                    position: "relative",
+                    zIndex: 10000,
+                    color: "#ffffff",
+                    backgroundColor: "#030f18c9",
+                    top: "-62px",
+
+                    backdropFilter: "blur(5px)",
+                  }}>
+                  <Typography variant='h6'>{c.name}</Typography>
+                </Stack>
+              </Card>
+            ))}
         </Stack>
       </Box>
       <RightSideBar />
