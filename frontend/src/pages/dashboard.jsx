@@ -57,6 +57,7 @@ const Dashboard = () => {
             {categoryLimit &&
               categoryLimit?.map((category) => (
                 <Button
+                  key={category._id}
                   sx={{
                     bgcolor: "primary.light",
                     color: "primary.main",
