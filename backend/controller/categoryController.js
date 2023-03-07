@@ -1,6 +1,16 @@
 import category from "../models/categoriesModel.js";
 import cloudinary from "../util/cloudinary.js";
 
+// Limit Category
+export const findLimitCategory = async (req, res) => {
+  try {
+    const limitCategories = await category.find().limit(6);
+    res.status(200).json(limitCategories);
+  } catch (err) {
+    res.status(500).json(err.message);
+  }
+};
+
 // Find All category
 
 export const findCategory = async (req, res) => {

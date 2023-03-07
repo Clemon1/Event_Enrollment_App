@@ -2,6 +2,7 @@ import events from "../models/eventModel.js";
 import cloudinary from "../util/cloudinary.js";
 
 // get all events
+
 export const allEvents = async (req, res) => {
   try {
     const findAllEvent = await events.find();

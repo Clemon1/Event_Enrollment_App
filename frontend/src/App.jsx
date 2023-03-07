@@ -16,6 +16,7 @@ import Dashboard from "./pages/dashboard";
 import { useSelector } from "react-redux";
 import { currentUSer } from "./features/authSlice";
 import Category from "./pages/category";
+import Profile from "./pages/profile";
 
 function App() {
   const theme = createTheme({
@@ -61,6 +62,10 @@ function App() {
         <Route
           path='/categories'
           element={user ? <Category /> : <Navigate to='/login' />}
+        />
+        <Route
+          path='/profile'
+          element={user ? <Profile /> : <Navigate to='/login' />}
         />
       </Route>,
     ),

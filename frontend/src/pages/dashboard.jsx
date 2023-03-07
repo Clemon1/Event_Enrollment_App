@@ -8,20 +8,21 @@ import {
   Typography,
 } from "@mui/material";
 import { useSelector } from "react-redux";
-
+import moment from "moment";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
-import OpenInNewIcon from "@mui/icons-material/OpenInNew";
-import pic6 from "../assets/pic6.jpg";
-import pic2 from "../assets/pic2.jpg";
+
 import LeftSideBar from "../components/leftSidebar";
 import RightSideBar from "../components/rightSidebar";
 import { currentUSer } from "../features/authSlice";
 import { useGetAllEventsQuery } from "../features/eventSlice";
+import { useLimitCategoriesQuery } from "../features/categorySlice";
+import { Link } from "react-router-dom";
 const Dashboard = () => {
   const user = useSelector(currentUSer);
   console.log(user);
-  const { data, isLoading } = useGetAllEventsQuery();
-  console.log(data);
+  const { data: events } = useGetAllEventsQuery();
+  const { data: categoryLimit } = useLimitCategoriesQuery();
+
   return (
     <Stack direction={"row"} marginTop={"65px"}>
       <LeftSideBar />
@@ -53,78 +54,21 @@ const Dashboard = () => {
               bgcolor: "inherit",
               height: "100%",
             }}>
-            <Button
-              sx={{
-                bgcolor: "primary.light",
-                color: "primary.main",
-                borderRadius: 8,
-                ":hover": {
-                  bgcolor: "primary.light",
-                  color: "primary.main",
-                },
-              }}>
-              Music
-            </Button>
-            <Button
-              sx={{
-                bgcolor: "primary.light",
-                color: "primary.main",
-                borderRadius: 8,
-                ":hover": {
-                  bgcolor: "primary.light",
-                  color: "primary.main",
-                },
-              }}>
-              Finance
-            </Button>
-            <Button
-              sx={{
-                bgcolor: "primary.light",
-                color: "primary.main",
-                borderRadius: 8,
-                ":hover": {
-                  bgcolor: "primary.light",
-                  color: "primary.main",
-                },
-              }}>
-              Gaming
-            </Button>
-            <Button
-              sx={{
-                bgcolor: "primary.light",
-                color: "primary.main",
-                borderRadius: 8,
-                ":hover": {
-                  bgcolor: "primary.light",
-                  color: "primary.main",
-                },
-              }}>
-              Technology
-            </Button>
-            <Button
-              sx={{
-                bgcolor: "primary.light",
-                color: "primary.main",
-                borderRadius: 8,
-                ":hover": {
-                  bgcolor: "primary.light",
-                  color: "primary.main",
-                },
-              }}>
-              Movies
-            </Button>
-            <Button
-              sx={{
-                bgcolor: "primary.light",
-                color: "primary.main",
-                borderRadius: 8,
-                ":hover": {
-                  bgcolor: "primary.light",
-                  color: "primary.main",
-                },
-              }}>
-              Sports
-            </Button>
+            {categoryLimit &&
+              categoryLimit?.map((category) => (
+                <Button
+                  sx={{
+                    bgcolor: "primary.light",
+                    color: "primary.main",
+                    borderRadius: 8,
+                    ":hover": {
+                      bgcolor: "primary.light",
+                      color: "primary.main",
+                    },
+                  }}>
+                  {category.name}
+                </Button>
+              ))}
           </Stack>
 
           <Stack
@@ -137,9 +81,11 @@ const Dashboard = () => {
               bgcolor: "inherit",
               height: "100%",
             }}>
-            <Button sx={{ color: "primary.light", fontWeight: 600 }}>
-              See all
-            </Button>
+            <Link to={"/categories"} style={{ textDecoration: "none" }}>
+              <Button sx={{ color: "primary.light", fontWeight: 600 }}>
+                See all
+              </Button>
+            </Link>
           </Stack>
         </Stack>
         {/* Home Content */}
@@ -155,8 +101,8 @@ const Dashboard = () => {
             paddingX: "15px",
             paddingY: 2,
           }}>
-          {data &&
-            data.map((event) => (
+          {events &&
+            events.map((event) => (
               <Card
                 key={event._id}
                 sx={{
@@ -196,7 +142,7 @@ const Dashboard = () => {
                         variant='subtitle2'
                         color={"#42f1c1"}
                         fontWeight={500}>
-                        Fri, Mar 10th 2023
+                        {moment(event.dateOfEvent).format(" MMMM Do YYYY")}
                       </Typography>
                       <Button>
                         <BookmarkIcon sx={{ color: "primary.light" }} />

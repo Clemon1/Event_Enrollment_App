@@ -7,6 +7,10 @@ export const categoryApi = createApi({
   }),
   tagTypes: ["categories"],
   endpoints: (build) => ({
+    limitCategories: build.query({
+      query: () => "/limit",
+      providesTags: ["categories"],
+    }),
     getCategories: build.query({
       query: () => "/all",
       providesTags: ["categories"],
@@ -18,5 +22,8 @@ export const categoryApi = createApi({
   }),
 });
 
-export const { useGetCategoriesQuery, useGetSingleCategoriesQuery } =
-  categoryApi;
+export const {
+  useLimitCategoriesQuery,
+  useGetCategoriesQuery,
+  useGetSingleCategoriesQuery,
+} = categoryApi;

@@ -72,20 +72,22 @@ const LeftSideBar = () => {
             </Typography>
           </ListItemButton>
         </ListItem>
-        <ListItem>
-          <ListItemButton>
-            <ListItemIcon>
-              <AccountCircleIcon
-                sx={{ fontSize: 30, color: "primary.light" }}
-              />
-            </ListItemIcon>
-            <Typography
-              variant='body1'
-              sx={{ fontSize: 18, fontWeight: 500, color: "primary.light" }}>
-              Profile
-            </Typography>
-          </ListItemButton>
-        </ListItem>
+        <NavLink to={"/profile"} style={{ textDecoration: "none" }}>
+          <ListItem>
+            <ListItemButton>
+              <ListItemIcon>
+                <AccountCircleIcon
+                  sx={{ fontSize: 30, color: "primary.light" }}
+                />
+              </ListItemIcon>
+              <Typography
+                variant='body1'
+                sx={{ fontSize: 18, fontWeight: 500, color: "primary.light" }}>
+                Profile
+              </Typography>
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
       </List>
       <List>
         <ListItem alignItems='center'></ListItem>

@@ -55,7 +55,7 @@ const Category = () => {
                 <CardMedia
                   sx={{ height: "100%" }}
                   image={c.image}
-                  title='green iguana'
+                  title={c.name}
                 />
                 <Stack
                   direction={"row"}
