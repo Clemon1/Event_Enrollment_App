@@ -19,7 +19,7 @@ import { useLimitCategoriesQuery } from "../features/categorySlice";
 import { Link } from "react-router-dom";
 const Dashboard = () => {
   const user = useSelector(currentUSer);
-  console.log(user);
+
   const { data: events } = useGetAllEventsQuery();
   const { data: categoryLimit } = useLimitCategoriesQuery();
 
