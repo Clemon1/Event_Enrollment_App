@@ -113,51 +113,57 @@ const Dashboard = () => {
                   height: "56vh",
                   borderRadius: 3,
                 }}>
-                <CardMedia
-                  component='img'
-                  sx={{ width: "100%", height: "33vh" }}
-                  image={event.image}
-                />
-                <Stack
-                  direction={"row"}
-                  gap={1}
-                  sx={{
-                    width: "100%",
-                    height: "100%",
-                    padding: "0.5rem",
-                    bgcolor: "primary.main",
+                <Link
+                  to={`/events/${event._id}`}
+                  style={{
+                    textDecoration: "none",
                   }}>
+                  <CardMedia
+                    component='img'
+                    sx={{ width: "100%", height: "33vh" }}
+                    image={event.image}
+                  />
                   <Stack
-                    direction={"column"}
-                    gap={2}
+                    direction={"row"}
+                    gap={1}
                     sx={{
                       width: "100%",
                       height: "100%",
+                      padding: "0.5rem",
+                      bgcolor: "primary.main",
                     }}>
                     <Stack
-                      direction={"row"}
-                      width={"100%"}
-                      alignItems={"center"}
-                      justifyContent={"space-between"}>
-                      <Typography
-                        variant='subtitle2'
-                        color={"#42f1c1"}
-                        fontWeight={500}>
-                        {moment(event.dateOfEvent).format(" MMMM Do YYYY")}
-                      </Typography>
-                      <Button>
-                        <BookmarkIcon sx={{ color: "primary.light" }} />
-                      </Button>
-                    </Stack>
+                      direction={"column"}
+                      gap={2}
+                      sx={{
+                        width: "100%",
+                        height: "100%",
+                      }}>
+                      <Stack
+                        direction={"row"}
+                        width={"100%"}
+                        alignItems={"center"}
+                        justifyContent={"space-between"}>
+                        <Typography
+                          variant='subtitle2'
+                          color={"#42f1c1"}
+                          fontWeight={500}>
+                          {moment(event.dateOfEvent).format(" MMMM Do YYYY")}
+                        </Typography>
+                        <Button>
+                          <BookmarkIcon sx={{ color: "primary.light" }} />
+                        </Button>
+                      </Stack>
 
-                    <Typography
-                      variant='h6'
-                      color={"primary.light"}
-                      sx={{ fontWeight: 600 }}>
-                      {event.title.slice(0, 45)}
-                    </Typography>
+                      <Typography
+                        variant='h6'
+                        color={"primary.light"}
+                        sx={{ fontWeight: 600 }}>
+                        {event.title.slice(0, 45)}
+                      </Typography>
+                    </Stack>
                   </Stack>
-                </Stack>
+                </Link>
               </Card>
             ))}
           {/* Second Card for test */}

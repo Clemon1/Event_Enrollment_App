@@ -17,6 +17,7 @@ import { useSelector } from "react-redux";
 import { currentUSer } from "./features/authSlice";
 import Category from "./pages/category";
 import Profile from "./pages/profile";
+import SingleEvent from "./pages/SingleEvent";
 
 function App() {
   const theme = createTheme({
@@ -66,6 +67,10 @@ function App() {
         <Route
           path='/profile'
           element={user ? <Profile /> : <Navigate to='/login' />}
+        />
+        <Route
+          path='/events/:id'
+          element={user ? <SingleEvent /> : <Navigate to='/login' />}
         />
       </Route>,
     ),
