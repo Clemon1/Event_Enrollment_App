@@ -12,7 +12,7 @@ export const eventAPI = createApi({
       providesTags: ["events"],
     }),
     getSingleEvents: build.query({
-      query: (id) => `/allEvents/${id}`,
+      query: (id) => `/allEvent/${id}`,
       providesTags: ["events"],
     }),
   }),

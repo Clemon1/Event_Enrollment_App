@@ -1,4 +1,4 @@
-import { Box, Stack, Typography, Avatar } from "@mui/material";
+import { Box, Stack, Typography, Avatar, Card, CardMedia } from "@mui/material";
 import { useGetSingleEventsQuery } from "../features/eventSlice";
 import { useParams } from "react-router-dom";
 import LeftSideBar from "../components/leftSidebar";
@@ -6,6 +6,7 @@ import RightSideBar from "../components/rightSidebar";
 const SingleEvent = () => {
   const { id } = useParams();
   const { data: category } = useGetSingleEventsQuery(id);
+  console.log(category);
   return (
     <Stack direction={"row"} marginTop={"65px"}>
       <LeftSideBar />
@@ -17,9 +18,6 @@ const SingleEvent = () => {
           bgcolor: "#04263a",
           padding: 2,
         }}>
-        <Typography variant='h4' color={"#ffffff"} marginBottom={2}>
-          Single Event {id}
-        </Typography>
         <Stack
           direction={"column"}
           gap='0.9rem'
@@ -31,7 +29,21 @@ const SingleEvent = () => {
             bgcolor: "#04263a",
             paddingX: "15px",
             paddingY: 2,
-          }}></Stack>
+          }}>
+          <Typography variant='h4' color={"#ffffff"}>
+            {" "}
+            {category && category.title}
+          </Typography>
+          <Card sx={{ width: "100%", height: "40vh" }}>
+            <CardMedia
+              sx={{ width: "100%", height: "100%" }}
+              image={category && category.image}
+            />
+          </Card>
+          <Typography variant='h5' color={"#ffffff"}>
+            {category && category.description}
+          </Typography>
+        </Stack>
       </Box>
       <RightSideBar />
     </Stack>

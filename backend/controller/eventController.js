@@ -35,9 +35,9 @@ export const searchEvent = async (req, res) => {
 export const singleEvent = async (req, res) => {
   try {
     const id = req.params.id;
-    const findEvent = await events.findById({ id });
+    const findEvent = await events.findById(id);
     res.status(200).json(findEvent);
-  } catch (error) {
+  } catch (err) {
     res.status(500).json(err.message);
   }
 };
