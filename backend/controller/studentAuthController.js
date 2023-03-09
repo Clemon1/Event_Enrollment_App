@@ -50,7 +50,6 @@ export const studentLogin = async (req, res) => {
     });
 
     res.status(200).json({ message: "Logged in succesfully", user, token });
-    console.log(user);
   } catch (err) {
     res.status(500).json(err.message);
   }
