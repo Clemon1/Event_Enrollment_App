@@ -118,7 +118,7 @@ const Dashboard = () => {
               <Card
                 key={event._id}
                 sx={{
-                  width: ["48%", "43%", "32%", "32%"],
+                  width: ["47%", "47%", "32%", "32%"],
                   display: "flex",
                   flexDirection: "column",
                   height: ["60vh", "56vh"],

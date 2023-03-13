@@ -9,6 +9,8 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { LogOut, currentUSer } from "../features/authSlice";
+import MenuIcon from "@mui/icons-material/Menu";
+
 import { useState } from "react";
 
 const Navbar = () => {
@@ -59,9 +61,12 @@ const Navbar = () => {
           <Button
             sx={{
               bgcolor: "#ffffff",
-              display: ["block", "block", "none"],
+              ":hover": {
+                bgcolor: "#ffffff",
+              },
+              display: ["flex", "flex", "none", "none"],
             }}>
-            M
+            <MenuIcon />
           </Button>
         </Stack>
         {user ? (

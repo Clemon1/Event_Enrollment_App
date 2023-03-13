@@ -47,8 +47,8 @@ const Category = () => {
               <Card
                 key={c._id}
                 sx={{
-                  borderRadius: 8,
-                  width: "32%",
+                  borderRadius: [4, 4, 6, 8],
+                  width: ["46%", "40%", "40%", "32%"],
                   height: "40vh",
                   background: "#fafafa",
                 }}>
