@@ -19,11 +19,10 @@ const Category = () => {
       <LeftSideBar />
       <Box
         sx={{
-          width: "47.4rem",
+          width: ["100%", "100%", "100%", "56%"],
           height: "100vh",
-          marginLeft: "297px",
+          marginLeft: [0, 0, 0, "297px"],
           bgcolor: "#04263a",
-          padding: 2,
         }}>
         <Typography
           variant='h5'
@@ -40,6 +39,7 @@ const Category = () => {
           width={"100%"}
           height={"fit-content"}
           sx={{
+            padding: 2,
             bgcolor: "#04263a",
           }}>
           {data &&

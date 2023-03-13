@@ -22,9 +22,9 @@ const SingleEvent = () => {
       <LeftSideBar />
       <Box
         sx={{
-          width: "47.4rem",
+          width: ["100%", "100%", "47.4rem"],
           height: "100vh",
-          marginLeft: "297px",
+          marginLeft: ["0", "0", "297px"],
           bgcolor: "#04263a",
           padding: 2,
         }}>
@@ -37,7 +37,7 @@ const SingleEvent = () => {
           height={"fit-content"}
           sx={{
             bgcolor: "#04263a",
-            paddingX: "15px",
+            paddingX: ["12px", "14px", "15px"],
             paddingY: 2,
           }}>
           <Typography variant='h5' fontWeight={500} color={"#ffffff"}>
@@ -57,7 +57,11 @@ const SingleEvent = () => {
             alignItems={"center"}>
             <Stack direction={"row"} gap={1}>
               <CalendarMonthIcon sx={{ color: "#42f1c1" }} />
-              <Typography variant='body1' color={"#42f1c1"} fontWeight={500}>
+              <Typography
+                variant='body1'
+                fontSize={[14, 15, 16]}
+                color={"#42f1c1"}
+                fontWeight={500}>
                 {category &&
                   moment(category.dateOfEvent).format(" MMMM Do YYYY")}
               </Typography>
@@ -77,7 +81,11 @@ const SingleEvent = () => {
               Book Event
             </Button>
           </Stack>
-          <Typography variant='h6' fontWeight={400} color={"#ffffff"}>
+          <Typography
+            variant='h6'
+            fontSize={[16, 17, 20, 20]}
+            fontWeight={400}
+            color={"#ffffff"}>
             {category && category.description}
           </Typography>
         </Stack>

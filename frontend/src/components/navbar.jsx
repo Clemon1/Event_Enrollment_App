@@ -35,20 +35,35 @@ const Navbar = () => {
         top: 0,
         zIndex: 300,
         background: "#030f18",
-        padding: "2px 65px",
+        padding: ["2px 20px", " 2px 30px", "2px 65px"],
       }}>
       <Toolbar>
-        <Typography
-          variant='h4'
-          sx={{
-            flexGrow: 1,
-            fontWeight: 600,
-            color: "#edf7ff",
-          }}>
-          <Link to={"/"} style={{ textDecoration: "none", color: "#edf7ff" }}>
-            Event-O
-          </Link>
-        </Typography>
+        <Stack
+          direction={"row"}
+          width={["100%", "100%", "30%"]}
+          alignItems={"center"}
+          justifyContent={"space-around"}>
+          <Typography
+            variant='h4'
+            sx={{
+              flexGrow: 1,
+              fontSize: [28, 30, 34],
+              fontWeight: [600, 600, 600],
+              color: "#edf7ff",
+            }}>
+            <Link to={"/"} style={{ textDecoration: "none", color: "#edf7ff" }}>
+              Event-O
+            </Link>
+          </Typography>
+
+          <Button
+            sx={{
+              bgcolor: "#ffffff",
+              display: ["block", "block", "none"],
+            }}>
+            M
+          </Button>
+        </Stack>
         {user ? (
           <Stack
             direction={"row"}

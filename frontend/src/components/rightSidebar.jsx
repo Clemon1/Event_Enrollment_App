@@ -8,6 +8,12 @@ const RightSideBar = () => {
       sx={{
         width: "22%",
         height: "90vh",
+        transform: [
+          "translateX(200px)",
+          "translateX(400px)",
+          "translateX(400px)",
+          "translateX(0px)",
+        ],
         bgcolor: "primary.main",
         paddingX: 2,
         position: "fixed",

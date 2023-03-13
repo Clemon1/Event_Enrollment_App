@@ -20,8 +20,15 @@ const LeftSideBar = () => {
       direction={"column"}
       sx={{
         width: "22%",
+
+        transform: [
+          "translateX(-400px)",
+          "translateX(-400px)",
+          "translateX(-400px)",
+          "translateX(0px)",
+        ],
         height: "90vh",
-        paddingX: 5,
+        paddingX: [1, 1, 0, 5],
         justifyContent: "space-between",
         paddingY: 5,
         bgcolor: "primary.main",

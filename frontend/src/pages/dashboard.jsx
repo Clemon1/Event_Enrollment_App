@@ -28,13 +28,21 @@ const Dashboard = () => {
       <LeftSideBar />
       <Box
         sx={{
-          width: "47.4rem",
+          width: ["100%", "100%", "100%", "56%"],
           height: "100vh",
-          marginLeft: "297px",
+          marginLeft: {
+            xs: 0,
+            sm: 0,
+            md: 0,
+            lg: "297px",
+            xl: "293px",
+          },
+          // ["0", "0", "0px", "273px", "297px"]
           bgcolor: "#04263a",
         }}>
         <Stack
           direction={"row"}
+          display={["none", "none", "none", "flex"]}
           alignItems={"center"}
           justifyContent={"flex-start"}
           gap={3}
@@ -48,7 +56,7 @@ const Dashboard = () => {
             direction={"row"}
             alignItems={"center"}
             justifyContent={"flex-start"}
-            gap={3}
+            gap={["8px", "8px", "10px", "8px"]}
             sx={{
               width: "100%",
               bgcolor: "inherit",
@@ -61,6 +69,8 @@ const Dashboard = () => {
                   sx={{
                     bgcolor: "primary.light",
                     color: "primary.main",
+                    fontSize: [11, 12, 12, 14],
+                    paddingX: [1, 2, 2, 1],
                     borderRadius: 8,
                     ":hover": {
                       bgcolor: "primary.light",
@@ -78,6 +88,7 @@ const Dashboard = () => {
             justifyContent={"flex-start"}
             gap={3}
             sx={{
+              display: ["none", "none", "flex"],
               width: "20%",
               bgcolor: "inherit",
               height: "100%",
@@ -92,9 +103,9 @@ const Dashboard = () => {
         {/* Home Content */}
         <Stack
           direction={"row"}
-          gap='0.9rem'
+          gap={[2, 2, 1, 1]}
           flexWrap={"wrap"}
-          justifyContent={"flex-start"}
+          justifyContent={["center", "center", "flex-start"]}
           width={"100%"}
           height={"fit-content"}
           sx={{
@@ -107,10 +118,10 @@ const Dashboard = () => {
               <Card
                 key={event._id}
                 sx={{
-                  width: "32%",
+                  width: ["48%", "43%", "32%", "32%"],
                   display: "flex",
                   flexDirection: "column",
-                  height: "56vh",
+                  height: ["60vh", "56vh"],
                   borderRadius: 3,
                 }}>
                 <Link
@@ -120,7 +131,7 @@ const Dashboard = () => {
                   }}>
                   <CardMedia
                     component='img'
-                    sx={{ width: "100%", height: "33vh" }}
+                    sx={{ width: "100%", height: ["30vh", "31vh", "33vh"] }}
                     image={event.image}
                   />
                   <Stack
@@ -147,6 +158,7 @@ const Dashboard = () => {
                         <Typography
                           variant='subtitle2'
                           color={"#42f1c1"}
+                          fontSize={[12, 14, 15]}
                           fontWeight={500}>
                           {moment(event.dateOfEvent).format(" MMMM Do YYYY")}
                         </Typography>
@@ -158,6 +170,7 @@ const Dashboard = () => {
                       <Typography
                         variant='h6'
                         color={"primary.light"}
+                        fontSize={[16, 17, 18]}
                         sx={{ fontWeight: 600 }}>
                         {event.title.slice(0, 45)}
                       </Typography>
