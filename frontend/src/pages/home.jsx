@@ -52,15 +52,15 @@ const Home = () => {
         </Stack>
         <Stack
           direction={"row"}
+          flexWrap={"wrap"}
+          gap={2}
           sx={{ width: "50%", justifyContent: "center" }}>
           <Card
             sx={{
-              width: "20%",
-              height: 250,
+              width: "40%",
+              height: "50%",
               bgcolor: "#ffffff",
               borderRadius: 1,
-              position: "absolute",
-              left: "675px",
             }}>
             <CardMedia
               sx={{ height: "100%", objectFit: "cover" }}
@@ -70,13 +70,11 @@ const Home = () => {
           </Card>
           <Card
             sx={{
-              width: "20%",
-              height: 250,
+              width: "40%",
+              height: "50%",
               bgcolor: "#ffffff",
-              position: "absolute",
+              marginTop: "40px",
               borderRadius: 1,
-              right: "120px",
-              bottom: "250px",
             }}>
             <CardMedia
               sx={{ height: "100%", loading: "lazy" }}
@@ -86,10 +84,10 @@ const Home = () => {
           </Card>
           <Card
             sx={{
-              width: "20%",
-              height: 250,
+              width: "40%",
+              height: "50%",
               bgcolor: "#ffffff",
-              position: "absolute",
+              marginTop: "-40px",
               borderRadius: 1,
               top: "340px",
               left: "675px",
@@ -98,10 +96,10 @@ const Home = () => {
           </Card>
           <Card
             sx={{
-              width: "20%",
-              height: 250,
+              width: "40%",
+              height: "50%",
               bgcolor: "#ffffff",
-              position: "absolute",
+
               borderRadius: 1,
               right: "120px",
               bottom: "-12px",
@@ -123,18 +121,18 @@ const Home = () => {
         <Stack direction={"row"} gap={30} sx={{ height: "70vh" }}>
           <Box
             sx={{
-              width: "24%",
+              width: "29%",
               height: "60%",
 
               background: "#03a075!important",
             }}>
             <Card
               sx={{
-                width: "35%",
-                height: "50%",
-                position: "absolute",
-                top: "727px",
-                left: "124px ",
+                width: "150%",
+                height: "115%",
+                position: "relative",
+                top: "22px",
+                left: "19px ",
               }}>
               <CardMedia
                 sx={{ height: "100%", objectFit: "cover" }}
@@ -186,14 +184,14 @@ const Home = () => {
               part with.
             </Typography>
           </Stack>
-          <Box sx={{ width: "48%", height: "100%", bgcolor: "#009FFF" }}>
+          <Box sx={{ width: "48%", height: "86%", bgcolor: "#009FFF" }}>
             <Card
               sx={{
-                width: "43%",
-                height: "70%",
-                position: "absolute",
-                top: "1210px",
-                right: "130px",
+                width: "111%",
+                height: "106%",
+                position: "relative",
+                top: "-42px",
+                right: "79px",
               }}>
               <CardMedia
                 sx={{ height: "100%", objectFit: "cover" }}

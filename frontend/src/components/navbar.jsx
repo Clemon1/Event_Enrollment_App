@@ -119,7 +119,8 @@ const Navbar = () => {
         ) : (
           <Stack
             sx={{
-              width: ["100%", "100%", "fit-content"],
+              width: ["100%", "100%", "fit-content", "100%"],
+              justifyContent: "flex-end",
               background: ["#04263A", "#04263A", "inherit"],
               position: ["absolute", "absolute", "static"],
               top: 60,
