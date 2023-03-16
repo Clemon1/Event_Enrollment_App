@@ -35,7 +35,7 @@ const Navbar = () => {
         width: "100%",
         height: 65,
         top: 0,
-        zIndex: 300,
+        zIndex: 30000,
         background: "#030f18",
         padding: ["2px 20px", " 2px 30px", "2px 65px"],
       }}>
@@ -78,7 +78,7 @@ const Navbar = () => {
               background: ["#04263A", "#04263A", "inherit"],
               position: ["absolute", "absolute", "static"],
               top: 60,
-              zIndex: 100,
+              zIndex: 20000,
               padding: [2, 4],
               transform: ["translateX(-550px)", "translateX(-905px)", "unset"],
               left: 0,

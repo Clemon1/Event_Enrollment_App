@@ -27,6 +27,7 @@ const Category = () => {
         <Typography
           variant='h5'
           fontWeight={500}
+          padding={2}
           color={"primary.light"}
           paddingBottom={2}>
           All Categories
@@ -48,8 +49,8 @@ const Category = () => {
                 key={c._id}
                 sx={{
                   borderRadius: [4, 4, 6, 8],
-                  width: ["46%", "40%", "40%", "32%"],
-                  height: "40vh",
+                  width: ["46%", "45%", "40%", "32%"],
+                  height: ["40vh", "45vh", "45vh", "40vh"],
                   background: "#fafafa",
                 }}>
                 <CardMedia
@@ -65,7 +66,7 @@ const Category = () => {
                     width: "100%",
                     height: "25%",
                     position: "relative",
-                    zIndex: 10000,
+                    zIndex: 1000,
                     color: "#ffffff",
                     backgroundColor: "#030f18c9",
                     top: "-62px",
