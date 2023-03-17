@@ -1,5 +1,6 @@
 import category from "../models/categoriesModel.js";
 import cloudinary from "../util/cloudinary.js";
+import events from "../models/eventModel.js";
 
 // Limit Category
 export const findLimitCategory = async (req, res) => {
@@ -26,8 +27,11 @@ export const findCategory = async (req, res) => {
 export const findSingleCategory = async (req, res) => {
   try {
     const { id } = req.params;
-    const singleCategory = await category.findById({ id });
-    res.status(200).json(singleCategory);
+    const singleCategory = await category.findById(id);
+    const eventUnderCategory = await events.find({
+      category: id,
+    });
+    res.status(200).json({ singleCategory, eventUnderCategory });
   } catch (err) {
     res.status(500).json(err.message);
   }
