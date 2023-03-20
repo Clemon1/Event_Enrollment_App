@@ -20,8 +20,9 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 router.get("/allEvent", allEvents);
-router.get("/search/:search", searchEvent);
+
 router.get("/allEvent/:id", singleEvent);
+router.get("/search/:title", searchEvent);
 router.post("/create", upload.single("image"), createEvent);
 router.put("/update/:id", updateEvent);
 router.delete("/delete/:id", deleteEvent);

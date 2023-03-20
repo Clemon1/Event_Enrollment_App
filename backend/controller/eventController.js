@@ -15,14 +15,14 @@ export const allEvents = async (req, res) => {
 // Search and Filter event
 export const searchEvent = async (req, res) => {
   try {
-    const searchParams = req.params.search;
-    const startDate = req.query.startDate;
-    const endDate = req.query.endDate;
+    const searchParams = req.params.title;
+    // const startDate = req.query.startDate;
+    // const endDate = req.query.endDate;
 
     const search = await events.find({
       $or: [
         { title: { $regex: searchParams, $options: "i" } },
-        { dateOfEvent: { $gte: new Date(startDate), $lts: new Date(endDate) } },
+        // { dateOfEvent: { $gte: new Date(startDate), $lts: new Date(endDate) } },
       ],
     });
     res.status(200).json(search);

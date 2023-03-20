@@ -11,6 +11,7 @@ import {
 import LeftSideBar from "../components/leftSidebar";
 import RightSideBar from "../components/rightSidebar";
 import { useGetCategoriesQuery } from "../features/categorySlice";
+import { Link } from "react-router-dom";
 const Category = () => {
   const { data, isLoading } = useGetCategoriesQuery();
   console.log(data);
@@ -53,28 +54,32 @@ const Category = () => {
                   height: ["40vh", "45vh", "45vh", "40vh"],
                   background: "#fafafa",
                 }}>
-                <CardMedia
-                  sx={{ height: "100%" }}
-                  image={c.image}
-                  title={c.name}
-                />
-                <Stack
-                  direction={"row"}
-                  justifyContent={"center"}
-                  alignItems={"center"}
-                  sx={{
-                    width: "100%",
-                    height: "25%",
-                    position: "relative",
-                    zIndex: 1000,
-                    color: "#ffffff",
-                    backgroundColor: "#030f18c9",
-                    top: "-62px",
+                <Link
+                  to={`/categories/${c._id}`}
+                  style={{ textDecoration: "none" }}>
+                  <CardMedia
+                    sx={{ height: "100%" }}
+                    image={c.image}
+                    title={c.name}
+                  />
+                  <Stack
+                    direction={"row"}
+                    justifyContent={"center"}
+                    alignItems={"center"}
+                    sx={{
+                      width: "100%",
+                      height: "25%",
+                      position: "relative",
+                      zIndex: 1000,
+                      color: "#ffffff",
+                      backgroundColor: "#030f18c9",
+                      top: "-62px",
 
-                    backdropFilter: "blur(5px)",
-                  }}>
-                  <Typography variant='h6'>{c.name}</Typography>
-                </Stack>
+                      backdropFilter: "blur(5px)",
+                    }}>
+                    <Typography variant='h6'>{c.name}</Typography>
+                  </Stack>
+                </Link>
               </Card>
             ))}
         </Stack>

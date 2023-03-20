@@ -19,6 +19,7 @@ import Category from "./pages/category";
 import Profile from "./pages/profile";
 import SingleEvent from "./pages/SingleEvent";
 import Ticket from "./pages/ticket";
+import SingleCategory from "./pages/singleCategory";
 
 function App() {
   const theme = createTheme({
@@ -64,6 +65,10 @@ function App() {
         <Route
           path='/categories'
           element={user ? <Category /> : <Navigate to='/login' />}
+        />
+        <Route
+          path='/categories/:id'
+          element={user ? <SingleCategory /> : <Navigate to='/login' />}
         />
         <Route
           path='/profile'

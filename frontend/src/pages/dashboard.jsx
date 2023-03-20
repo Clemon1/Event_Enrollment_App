@@ -7,6 +7,8 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+
+import CircularProgress from "@mui/material/CircularProgress";
 import { useSelector } from "react-redux";
 import moment from "moment";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
@@ -20,7 +22,7 @@ import { Link } from "react-router-dom";
 const Dashboard = () => {
   const user = useSelector(currentUSer);
 
-  const { data: events } = useGetAllEventsQuery();
+  const { data: events, isLoading } = useGetAllEventsQuery();
   const { data: categoryLimit } = useLimitCategoriesQuery();
 
   return (
@@ -113,6 +115,16 @@ const Dashboard = () => {
             paddingX: "15px",
             paddingY: 2,
           }}>
+          {isLoading && (
+            <Stack
+              direction={"row"}
+              alignItems={"center"}
+              justifyContent={"center"}
+              width={"100%"}
+              height={"50vh"}>
+              <CircularProgress color='secondary' size={50} />
+            </Stack>
+          )}
           {events &&
             events.map((event) => (
               <Card
