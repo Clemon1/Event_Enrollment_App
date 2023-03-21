@@ -22,16 +22,31 @@ const Home = () => {
         background: "#030f18",
         width: "100%",
         height: "fit-content",
-        padding: "17px 90px",
+        padding: ["17px 20px", "17px 90px", "17px 90px", "17px 90px"],
       }}>
-      <Stack direction={"row"} sx={{ width: "100%", height: "90vh" }}>
+      <Stack
+        direction={["column", "column", "row", "row"]}
+        sx={{ width: "100%", height: "90vh" }}>
         <Stack
           direction={"column"}
-          sx={{ width: "50%", alignItems: "flex-start", paddingTop: "8rem" }}>
+          sx={{
+            width: ["100%", "100%", "100%", "50%"],
+            alignItems: [
+              "flex-start",
+              "flex-start",
+              "flex-start",
+              "flex-start",
+            ],
+            paddingTop: "8rem",
+          }}>
           <Typography variant='h6' fontWeight={500} color={"#edf7ff"}>
             All fun starts here.
           </Typography>
-          <Typography variant='h2' fontWeight={500} color={"#edf7ff"}>
+          <Typography
+            variant='h2'
+            fontSize={[48, 18, 19, "3.75rem"]}
+            fontWeight={500}
+            color={"#edf7ff"}>
             Book your <br />
             Tickets for Events!
           </Typography>
@@ -113,12 +128,15 @@ const Home = () => {
           <Typography
             variant='h4'
             fontWeight={600}
-            paddingBottom={5}
+            paddingBottom={[0, 1, 1, 5]}
             color={"#edf7ff"}>
             How it works
           </Typography>
         </Stack>
-        <Stack direction={"row"} gap={30} sx={{ height: "70vh" }}>
+        <Stack
+          direction={["column", "column", "row", "row"]}
+          gap={30}
+          sx={{ height: ["100vh", "100vh", "90vh", "70vh"] }}>
           <Box
             sx={{
               width: "29%",
@@ -169,7 +187,7 @@ const Home = () => {
           <Stack
             direction={"column"}
             justifyContent={"center"}
-            sx={{ width: "50%", height: "90%" }}>
+            sx={{ width: "50%", height: "50%" }}>
             <Typography
               variant='h5'
               sx={{ color: "#ffffff", fontSize: "1.7rem", fontWeight: 400 }}>

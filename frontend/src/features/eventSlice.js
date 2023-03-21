@@ -15,7 +15,15 @@ export const eventAPI = createApi({
       query: (id) => `/allEvent/${id}`,
       providesTags: ["events"],
     }),
+    getSearchEvents: build.query({
+      query: (title) => `/search/${title}/?title=${title}`,
+      providesTags: ["events"],
+    }),
   }),
 });
 
-export const { useGetAllEventsQuery, useGetSingleEventsQuery } = eventAPI;
+export const {
+  useGetAllEventsQuery,
+  useGetSingleEventsQuery,
+  useGetSearchEventsQuery,
+} = eventAPI;

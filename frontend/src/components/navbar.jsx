@@ -7,7 +7,7 @@ import {
   TextField,
 } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LogOut, currentUSer } from "../features/authSlice";
 import MenuIcon from "@mui/icons-material/Menu";
 
@@ -28,6 +28,16 @@ const Navbar = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const [title, setTitle] = useState("");
+
+  const navigate = useNavigate();
+  const handleSearch = (e) => {
+    e.preventDefault();
+
+    navigate(`/search/${title}`);
+  };
+  console.log(title);
+
   return (
     <AppBar
       position='fixed'
@@ -87,15 +97,18 @@ const Navbar = () => {
               gap: 5,
             }}>
             <Stack direction={"row"} width={"fit-content"} height={"7vh"}>
-              <TextField
-                id='filled-basic1'
-                placeholder='Search...'
-                color='primary.light'
-                sx={{
-                  width: 550,
-                }}
-                variant='filled'
-              />
+              <form onSubmit={handleSearch}>
+                <TextField
+                  onChange={(e) => setTitle(e.target.value)}
+                  id='filled-basic1'
+                  placeholder='Search...'
+                  color='primary.light'
+                  sx={{
+                    width: 550,
+                  }}
+                  variant='filled'
+                />
+              </form>
             </Stack>
             <Stack direction={"row"} alignItems={"center"} gap={2}>
               <Typography variant='body1' color={"primary.light"}>

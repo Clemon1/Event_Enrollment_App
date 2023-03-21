@@ -7,7 +7,7 @@ import {
 
 const router = Router();
 
-router.get("/allBoking", allBookings);
+router.get("/allBooking", allBookings);
 
 router.get("/userBooking/:id", userBookings);
 

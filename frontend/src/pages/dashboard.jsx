@@ -66,21 +66,25 @@ const Dashboard = () => {
             }}>
             {categoryLimit &&
               categoryLimit?.map((category) => (
-                <Button
-                  key={category._id}
-                  sx={{
-                    bgcolor: "primary.light",
-                    color: "primary.main",
-                    fontSize: [11, 12, 12, 14],
-                    paddingX: [1, 2, 2, 1],
-                    borderRadius: 8,
-                    ":hover": {
+                <Link
+                  to={`/categories/${category._id}`}
+                  style={{ textDecoration: "none" }}>
+                  <Button
+                    key={category._id}
+                    sx={{
                       bgcolor: "primary.light",
                       color: "primary.main",
-                    },
-                  }}>
-                  {category.name}
-                </Button>
+                      fontSize: [11, 12, 12, 14],
+                      paddingX: [1, 2, 2, 1],
+                      borderRadius: 8,
+                      ":hover": {
+                        bgcolor: "primary.light",
+                        color: "primary.main",
+                      },
+                    }}>
+                    {category.name}
+                  </Button>
+                </Link>
               ))}
           </Stack>
 

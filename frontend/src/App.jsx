@@ -20,6 +20,8 @@ import Profile from "./pages/profile";
 import SingleEvent from "./pages/SingleEvent";
 import Ticket from "./pages/ticket";
 import SingleCategory from "./pages/singleCategory";
+import SearchEvent from "./pages/searchPage";
+import ErorPage from "./pages/error404";
 
 function App() {
   const theme = createTheme({
@@ -83,6 +85,11 @@ function App() {
           path='/tickets'
           element={user ? <Ticket /> : <Navigate to='/login' />}
         />
+        <Route
+          path='/search/:title'
+          element={user ? <SearchEvent /> : <Navigate to='/login' />}
+        />
+        <Route path='*' element={<ErorPage />} />
       </Route>,
     ),
   );

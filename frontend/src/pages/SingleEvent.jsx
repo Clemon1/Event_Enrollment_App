@@ -18,6 +18,7 @@ import moment from "moment";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import { useSelector } from "react-redux";
 import { currentUSer } from "../features/authSlice";
+import booking from "../../../backend/models/bookingModel";
 
 const SingleEvent = () => {
   const user = useSelector(currentUSer);
@@ -25,6 +26,7 @@ const SingleEvent = () => {
   const { id } = useParams();
   const { data: category } = useGetSingleEventsQuery(id);
   const [createBooking] = useCreateBookingsMutation();
+
   const [student, setStudent] = useState("");
   const [event, setEvent] = useState("");
   const [open, setOpen] = useState(false);
@@ -35,8 +37,9 @@ const SingleEvent = () => {
     student: user.user._id,
     event: category && category._id,
   };
-  console.log(body);
+
   console.log(category);
+
   const handleBooking = async (e) => {
     e.preventDefault();
     try {
@@ -118,7 +121,6 @@ const SingleEvent = () => {
                   bgcolor: "#42f1c1",
                 },
               }}>
-              {" "}
               Book Event
             </Button>
             <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
