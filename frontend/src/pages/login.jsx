@@ -64,7 +64,7 @@ const Login = () => {
       paddingY={5}>
       <Box
         sx={{
-          width: ["70%", "75%", "80%", "40%"],
+          width: ["90%", "90%", "80%", "40%"],
           borderRadius: 3,
           height: "fit-content",
           bgcolor: "#082036",

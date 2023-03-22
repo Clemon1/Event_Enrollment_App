@@ -26,7 +26,10 @@ const Home = () => {
       }}>
       <Stack
         direction={["column", "column", "row", "row"]}
-        sx={{ width: "100%", height: "90vh" }}>
+        sx={{
+          width: "100%",
+          height: ["60vh", "62vh", "90vh", "90vh"],
+        }}>
         <Stack
           direction={"column"}
           sx={{
@@ -37,15 +40,20 @@ const Home = () => {
               "flex-start",
               "flex-start",
             ],
-            paddingTop: "8rem",
+            paddingTop: ["4rem", "4rem", "6rem", "8rem"],
           }}>
-          <Typography variant='h6' fontWeight={500} color={"#edf7ff"}>
+          <Typography
+            variant='h6'
+            fontSize={[17, 18, "1.2rem", "1.23rem"]}
+            fontWeight={500}
+            color={"#edf7ff"}>
             All fun starts here.
           </Typography>
           <Typography
             variant='h2'
-            fontSize={[48, 18, 19, "3.75rem"]}
+            fontSize={[39, 40, 45, "3.75rem"]}
             fontWeight={500}
+            lineHeight={["3.4rem", "3.2rem", 1.2, 1.2]}
             color={"#edf7ff"}>
             Book your <br />
             Tickets for Events!
@@ -57,7 +65,7 @@ const Home = () => {
                 background: "#03a075 !important",
                 color: "#edf7ff !important",
                 fontWeight: 600,
-                borderRadius: 4,
+                borderRadius: [3, 3, 3, 4],
                 padding: 1,
                 paddingX: 3,
               }}>
@@ -67,6 +75,7 @@ const Home = () => {
         </Stack>
         <Stack
           direction={"row"}
+          display={["none", "none", "flex", "flex"]}
           flexWrap={"wrap"}
           gap={2}
           sx={{ width: "50%", justifyContent: "center" }}>
@@ -135,11 +144,12 @@ const Home = () => {
         </Stack>
         <Stack
           direction={["column", "column", "row", "row"]}
-          gap={30}
+          gap={[12, 13, 29, 30]}
+          paddingBottom={[20, 20, 4, 3]}
           sx={{ height: ["100vh", "100vh", "90vh", "70vh"] }}>
           <Box
             sx={{
-              width: "29%",
+              width: ["62%", "", "", "29%"],
               height: "60%",
 
               background: "#03a075!important",
@@ -147,10 +157,10 @@ const Home = () => {
             <Card
               sx={{
                 width: "150%",
-                height: "115%",
+                height: ["49vh", "50vh", "115%", "115%"],
                 position: "relative",
-                top: "22px",
-                left: "19px ",
+                top: ["10px", "12px", "22px", "22px"],
+                left: ["12px", "13px", "18px", "19px"],
               }}>
               <CardMedia
                 sx={{ height: "100%", objectFit: "cover" }}
@@ -162,10 +172,17 @@ const Home = () => {
           <Stack
             direction={"column"}
             justifyContent={"center"}
-            sx={{ width: "50%", height: "60%" }}>
+            sx={{
+              width: ["100%", "100%", "50%", "50%"],
+              height: ["100%", "100%", "60%", "60%"],
+            }}>
             <Typography
               variant='h5'
-              sx={{ color: "#ffffff", fontSize: "1.7rem", fontWeight: 400 }}>
+              sx={{
+                color: "#ffffff",
+                fontSize: [24, 24, "1.4rem", "1.7rem"],
+                fontWeight: 400,
+              }}>
               Discover comprehensive <br />
               list of upcoming events such as: <br />
               concerts, festivals, sports games, and other gatherings.
@@ -174,7 +191,11 @@ const Home = () => {
         </Stack>
       </Container>
       <Container sx={{ width: "100%", height: "fit-content" }}>
-        <Stack direction={"row"} sx={{ width: "100%" }}>
+        <Stack
+          direction={["column", "column", "row", "row"]}
+          sx={{
+            width: "100%",
+          }}>
           <Typography
             variant='h4'
             fontWeight={600}
@@ -183,14 +204,24 @@ const Home = () => {
             Benefits
           </Typography>
         </Stack>
-        <Stack direction={"row"} gap={3} sx={{ height: "70vh" }}>
+        <Stack
+          direction={["column", "column", "row", "row"]}
+          gap={3}
+          sx={{ height: ["100vh", "100vh", "73vh", "70vh"] }}>
           <Stack
             direction={"column"}
             justifyContent={"center"}
-            sx={{ width: "50%", height: "50%" }}>
+            sx={{
+              width: ["100%", "100%", "50%", "50%"],
+              height: ["100%", "100%", "52%", "50%"],
+            }}>
             <Typography
               variant='h5'
-              sx={{ color: "#ffffff", fontSize: "1.7rem", fontWeight: 400 }}>
+              sx={{
+                color: "#ffffff",
+                fontSize: [24, 24, "1.5rem", "1.7rem"],
+                fontWeight: 400,
+              }}>
               Keep yourself updated.
               <br />
               Safe, Secure, Reliable ticketing.
@@ -202,14 +233,19 @@ const Home = () => {
               part with.
             </Typography>
           </Stack>
-          <Box sx={{ width: "48%", height: "86%", bgcolor: "#009FFF" }}>
+          <Box
+            sx={{
+              width: ["100%", "100%", "48%", "48%"],
+              height: "86%",
+              bgcolor: "#009FFF",
+            }}>
             <Card
               sx={{
-                width: "111%",
+                width: ["100%", "100%", "100%", "111%"],
                 height: "106%",
                 position: "relative",
-                top: "-42px",
-                right: "79px",
+                top: ["-30px", "-30px", "-42px", "-42px"],
+                right: [15, 15, "78px", "79px"],
               }}>
               <CardMedia
                 sx={{ height: "100%", objectFit: "cover" }}
