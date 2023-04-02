@@ -23,6 +23,7 @@ const eventSchema = new mongoose.Schema(
       type: Date,
     },
   },
+
   {
     timestamps: true,
   },

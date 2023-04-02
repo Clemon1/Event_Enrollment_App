@@ -1,13 +1,14 @@
 import events from "../models/eventModel.js";
 import cloudinary from "../util/cloudinary.js";
+import booking from "../models/bookingModel.js";
 
 // get all events
 
 export const allEvents = async (req, res) => {
   try {
-    const findAllEvent = await events.find();
+    const findAllEvent = await events.find().populate("category").exec();
     res.status(200).json(findAllEvent);
-  } catch (error) {
+  } catch (err) {
     res.status(500).json(err.message);
   }
 };

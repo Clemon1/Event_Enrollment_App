@@ -2,6 +2,7 @@ import { Router } from "express";
 import {
   findLimitCategory,
   findCategory,
+  noOfEvent,
   findSingleCategory,
   createCategory,
 } from "../controller/categoryController.js";
@@ -17,6 +18,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 router.get("/limit", findLimitCategory);
+router.get("/events", noOfEvent);
 router.get("/all", findCategory);
 router.get("/all/:id", findSingleCategory);
 router.post("/create", upload.single("image"), createCategory);

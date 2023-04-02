@@ -12,6 +12,36 @@ export const findLimitCategory = async (req, res) => {
   }
 };
 
+// No of event in categories
+
+export const noOfEvent = async (req, res) => {
+  try {
+    const categories = await category.aggregate([
+      // {
+      //   $group: { _id: "$category", count: { $sum: 1 } },
+      // },
+      {
+        $lookup: {
+          from: "events",
+          localField: "_id",
+          foreignField: "category",
+          as: "events",
+        },
+      },
+      {
+        $project: {
+          _id: 1,
+          name: 1,
+          eventCount: { $size: "$events" },
+        },
+      },
+    ]);
+    res.status(200).json(categories);
+  } catch (err) {
+    res.status(500).json(err.message);
+  }
+};
+
 // Find All category
 
 export const findCategory = async (req, res) => {
@@ -36,6 +66,9 @@ export const findSingleCategory = async (req, res) => {
     res.status(500).json(err.message);
   }
 };
+
+// checking no of events
+export const checkNumberEvent = async (req, res) => {};
 
 // Create Category
 export const createCategory = async (req, res) => {
