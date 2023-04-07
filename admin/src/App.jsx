@@ -14,6 +14,8 @@ import Dashboard from "./pages/Dashboard";
 import Events from "./pages/Events";
 import Categories from "./pages/Categories";
 import Profile from "./pages/profile";
+import CreateEvent from "./pages/createEvent";
+import CreateCategory from "./pages/createCategories";
 function App() {
   const user = useSelector(currentUSer);
   const router = createBrowserRouter(
@@ -32,8 +34,17 @@ function App() {
           element={user ? <Events /> : <Navigate to={"/"} />}
         />
         <Route
+          path='/createEvent'
+          element={user ? <CreateEvent /> : <Navigate to={"/"} />}
+        />
+
+        <Route
           path='/categories'
           element={user ? <Categories /> : <Navigate to={"/"} />}
+        />
+        <Route
+          path='/createCategories'
+          element={user ? <CreateCategory /> : <Navigate to={"/"} />}
         />
         <Route
           path='/profile'

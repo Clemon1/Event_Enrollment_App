@@ -6,7 +6,7 @@ import {
   FormLabel,
   Text,
   Button,
-  HStack,
+  useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useState } from "react";
@@ -23,7 +23,7 @@ const Login = () => {
     email,
     password,
   };
-
+  const toast = useToast();
   console.log(body);
   const dispatch = useDispatch();
   const hangleLogin = async (e) => {
@@ -36,10 +36,25 @@ const Login = () => {
       });
 
       dispatch(Success(await res.data));
-
+      toast({
+        title: "Logged in Succesfully",
+        position: "top-right",
+        variant: "left-accent",
+        status: "success",
+        duration: 2000,
+        isClosable: true,
+      });
       navigate("/dashboard");
     } catch (error) {
       dispatch(Rejected(error.response.data));
+      toast({
+        title: error.response.data,
+        position: "top-right",
+        variant: "left-accent",
+        status: "error",
+        duration: 2000,
+        isClosable: true,
+      });
       console.log(error.response.data);
     }
   };
@@ -69,6 +84,7 @@ const Login = () => {
             <FormLabel color={"#ffffff"}>Email</FormLabel>
             <Input
               width={"100%"}
+              type='email'
               border={"2px #ffffff solid"}
               placeholder='Email'
               color={"#ffffff"}
@@ -78,6 +94,7 @@ const Login = () => {
           <FormControl marginBottom={5}>
             <FormLabel color={"#ffffff"}>Password</FormLabel>
             <Input
+              type='password'
               width={"100%"}
               border={"2px #ffffff solid"}
               color={"#ffffff"}

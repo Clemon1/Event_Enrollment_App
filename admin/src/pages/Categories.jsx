@@ -15,6 +15,8 @@ import {
 import Sidebar from "../components/Sidebar";
 import moment from "moment";
 import { useGetCategoriesQuery } from "../features/categorySlice";
+import { Link } from "react-router-dom";
+import SideBTN from "../components/sidebtn";
 const Categories = () => {
   const { data: categories } = useGetCategoriesQuery();
   return (
@@ -31,13 +33,20 @@ const Categories = () => {
         padding={6}
         gap={3}
         height={"100vh"}>
+        <SideBTN />
         <Flex alignItems={"center"} justifyContent={"space-between"}>
           <Text fontSize={23} fontWeight={500} color={"#ffffff"}>
-            Categories
+            Categories: {categories && categories.length}
           </Text>
-          <Button bgColor={"#FF8749"} rounded={11} color={"#fafafa"}>
-            Add Categories
-          </Button>
+          <Link to={"/createCategories"}>
+            <Button
+              bgColor={"#FF8749"}
+              rounded={11}
+              color={"#fafafa"}
+              _hover={{}}>
+              Add Categories
+            </Button>
+          </Link>
         </Flex>
         <TableContainer bgColor={"bgMain.secondary"} rounded={15}>
           <Table variant='simple' borderStyle={"hidden"}>

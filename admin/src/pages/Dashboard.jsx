@@ -24,6 +24,7 @@ import { CiMenuKebab } from "react-icons/ci";
 import ChartPie from "../components/PieChart";
 import { useGetTopBookingQuery } from "../features/bookingSlice";
 import { useGetUserNumberQuery } from "../features/userSlice";
+import SideBTN from "../components/sidebtn";
 
 const Dashboard = () => {
   const [greeting, setGreeting] = useState("");
@@ -64,6 +65,7 @@ const Dashboard = () => {
         bgColor={"bgMain.primary"}
         gap={3}
         height={"100vh"}>
+        <SideBTN />
         <Flex
           width={"100%"}
           flexDirection={["column", "column", "row", "row", "row"]}

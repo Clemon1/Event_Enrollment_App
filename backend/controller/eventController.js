@@ -46,8 +46,16 @@ export const singleEvent = async (req, res) => {
 // Create an event
 export const createEvent = async (req, res) => {
   const { title, description, category, dateOfEvent } = req.body;
+
+  if (!req.file) {
+    return res.status(400).json("No file uploaded");
+  }
+  if (!title || !description || !category || !dateOfEvent) {
+    return res.status(400).json("Details must not be left empty");
+  }
+
   const image = req.file.path;
-  console.log(image);
+
   try {
     const cloudUpload = await cloudinary.uploader.upload(image);
 

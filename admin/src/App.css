@@ -5,3 +5,6 @@
   top: -65px;
   left: 0px;
 }
+.optionTag * {
+  background-color: #04263a !important;
+}

@@ -75,7 +75,18 @@ export const createCategory = async (req, res) => {
   try {
     const { name } = req.body;
 
-    const imageUpload = await cloudinary.uploader.upload(req.file.path, {
+    const checkName = await category.findOne({ name });
+    if (checkName) {
+      return res.status(400).json("Category name already exist");
+    }
+    if (!req.file) {
+      return res.status(400).json("No file uploaded");
+    }
+    if (!name) {
+      return res.status(400).json("Cannot create category without a name ");
+    }
+    const image = req.file.path;
+    const imageUpload = await cloudinary.uploader.upload(image, {
       folder: "categories",
     });
 

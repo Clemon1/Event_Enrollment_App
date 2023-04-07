@@ -9,3 +9,8 @@
 .fonta {
   font-family: "Fugaz One", cursive;
 }
+
+.optionTag * {
+  background-color: #04263a !important;
+  border-color: #034870 2px solid !important;
+}

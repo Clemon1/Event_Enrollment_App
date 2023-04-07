@@ -8,8 +8,16 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { LogOut } from "../features/authSlice";
+import { useState } from "react";
 const Sidebar = () => {
+  const [slide, setSLide] = useState(true);
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(LogOut());
+  };
   return (
     <VStack
       width={["45%", "38%", "232px", "232px"]}
@@ -70,6 +78,7 @@ const Sidebar = () => {
       </UnorderedList>
       <Flex width={"100%"} marginTop={"13rem !important"}>
         <Button
+          onClick={handleLogout}
           width={"100%"}
           rounded={11}
           color={"#fafafa"}

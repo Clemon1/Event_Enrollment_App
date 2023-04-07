@@ -15,6 +15,7 @@ import {
 import Sidebar from "../components/Sidebar";
 import moment from "moment";
 import { useGetAllEventsQuery } from "../features/eventSlice";
+import { Link } from "react-router-dom";
 const Events = () => {
   const { data: events } = useGetAllEventsQuery();
   return (
@@ -26,18 +27,29 @@ const Events = () => {
       <Sidebar />
       <Flex
         flexDirection={"column"}
-        width={["100%", "100%", "100%", "100%", "1134px"]}
+        width={["100%", "100%", "100%", "100%", "1116px"]}
         marginLeft={[0, 0, 0, 0, 232]}
-        padding={6}
         gap={3}
-        height={"100vh"}>
-        <Flex alignItems={"center"} justifyContent={"space-between"}>
+        bgColor={"bgMain.primary"}
+        padding={6}
+        height={"fit-content"}>
+        <Flex
+          width={"100%"}
+          height={"fit-content"}
+          alignItems={"center"}
+          justifyContent={"space-between"}>
           <Text fontSize={23} fontWeight={500} color={"#ffffff"}>
-            Events
+            Events: {events && events.length}
           </Text>
-          <Button bgColor={"#FF8749"} rounded={11} color={"#fafafa"}>
-            Add Event
-          </Button>
+          <Link to={"/createEvent"}>
+            <Button
+              bgColor={"#FF8749"}
+              rounded={11}
+              color={"#fafafa"}
+              _hover={{}}>
+              Add Event
+            </Button>
+          </Link>
         </Flex>
         <TableContainer bgColor={"bgMain.secondary"} rounded={15}>
           <Table variant='simple' borderStyle={"hidden"}>

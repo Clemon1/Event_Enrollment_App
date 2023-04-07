@@ -38,6 +38,7 @@ export const categoryApi = createApi({
 
 export const {
   useGetCategoryEventsQuery,
+  useCreateCategoriesMutation,
   useLimitCategoriesQuery,
   useGetCategoriesQuery,
   useGetSingleCategoriesQuery,
