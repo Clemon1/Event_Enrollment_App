@@ -4,6 +4,7 @@ import Sidebar from "../components/Sidebar";
 import { currentUSer } from "../features/authSlice";
 import { useSelector } from "react-redux";
 import moment from "moment";
+import SideBTN from "../components/sidebtn";
 
 const Profile = () => {
   const user = useSelector(currentUSer);
@@ -22,6 +23,8 @@ const Profile = () => {
         padding={6}
         gap={3}
         height={"100vh"}>
+        <SideBTN />
+
         <Flex>
           <Text fontSize={23} fontWeight={500} color={"#ffffff"}>
             Profile
@@ -30,6 +33,7 @@ const Profile = () => {
 
         <Flex
           width={"100%"}
+          direction={["column", "column", "column", "row", "row"]}
           justifyContent={"center"}
           alignItems={"center"}
           height={"60vh"}

@@ -64,7 +64,7 @@ const Dashboard = () => {
         padding={6}
         bgColor={"bgMain.primary"}
         gap={3}
-        height={"100vh"}>
+        height={["100%", "100%", "100%", "100%", "100vh"]}>
         <SideBTN />
         <Flex
           width={"100%"}

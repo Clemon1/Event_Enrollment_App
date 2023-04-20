@@ -93,6 +93,7 @@ const CreateEvent = () => {
           "100vh",
         ]}>
         <SideBTN />
+
         <Flex
           width={"100%"}
           height={[
@@ -201,7 +202,7 @@ const CreateEvent = () => {
                   type='submit'
                   padding={4}
                   height={"8vh"}
-                  width={"15%"}
+                  width={"fit-content"}
                   rounded={"11px"}>
                   Submit
                 </Button>

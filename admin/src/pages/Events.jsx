@@ -16,6 +16,7 @@ import Sidebar from "../components/Sidebar";
 import moment from "moment";
 import { useGetAllEventsQuery } from "../features/eventSlice";
 import { Link } from "react-router-dom";
+import SideBTN from "../components/sidebtn";
 const Events = () => {
   const { data: events } = useGetAllEventsQuery();
   return (
@@ -33,6 +34,8 @@ const Events = () => {
         bgColor={"bgMain.primary"}
         padding={6}
         height={"fit-content"}>
+        <SideBTN />
+
         <Flex
           width={"100%"}
           height={"fit-content"}
