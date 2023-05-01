@@ -156,7 +156,7 @@ const Dashboard = () => {
             </Flex>
             <Flex
               width={"100%"}
-              height={"100%"}
+              height={"fit-content"}
               justifyContent={"center"}
               alignItems={"center"}>
               <ChartPie />

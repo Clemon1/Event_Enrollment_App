@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { PieChart, Pie, Sector } from "recharts";
+import { PieChart, Pie, Sector, ResponsiveContainer } from "recharts";
 import "../App.css";
 import { useGetCategoryEventsQuery } from "../features/categorySlice";
 
@@ -86,7 +86,7 @@ export default function ChartPie() {
   };
 
   return (
-    <PieChart className='chart' width={320} height={320} top={"-59px"}>
+    <PieChart className='chart' width={450} height={290} top={"-59px"}>
       <Pie
         activeIndex={activeIndex}
         activeShape={renderActiveShape}
