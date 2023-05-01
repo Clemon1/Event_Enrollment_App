@@ -21,39 +21,37 @@ function App() {
   const user = useSelector(currentUSer);
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Suspense fallback={<h1> ...Loading</h1>}>
-        <Route path='/' element={<Root />}>
-          <Route
-            index
-            element={user ? <Navigate to={"dashboard"} /> : <Login />}
-          />
-          <Route
-            path='dashboard'
-            element={user ? <Dashboard /> : <Navigate to={"/"} />}
-          />
-          <Route
-            path='events'
-            element={user ? <Events /> : <Navigate to={"/"} />}
-          />
-          <Route
-            path='createEvent'
-            element={user ? <CreateEvent /> : <Navigate to={"/"} />}
-          />
+      <Route path='/' element={<Root />}>
+        <Route
+          index
+          element={user ? <Navigate to={"dashboard"} /> : <Login />}
+        />
+        <Route
+          path='dashboard'
+          element={user ? <Dashboard /> : <Navigate to={"/"} />}
+        />
+        <Route
+          path='events'
+          element={user ? <Events /> : <Navigate to={"/"} />}
+        />
+        <Route
+          path='createEvent'
+          element={user ? <CreateEvent /> : <Navigate to={"/"} />}
+        />
 
-          <Route
-            path='categories'
-            element={user ? <Categories /> : <Navigate to={"/"} />}
-          />
-          <Route
-            path='createCategories'
-            element={user ? <CreateCategory /> : <Navigate to={"/"} />}
-          />
-          <Route
-            path='profile'
-            element={user ? <Profile /> : <Navigate to={"/"} />}
-          />
-        </Route>
-      </Suspense>,
+        <Route
+          path='categories'
+          element={user ? <Categories /> : <Navigate to={"/"} />}
+        />
+        <Route
+          path='createCategories'
+          element={user ? <CreateCategory /> : <Navigate to={"/"} />}
+        />
+        <Route
+          path='profile'
+          element={user ? <Profile /> : <Navigate to={"/"} />}
+        />
+      </Route>,
     ),
   );
   return (
@@ -67,7 +65,9 @@ const Root = () => {
   return (
     <>
       <div>
-        <Outlet />
+        <Suspense fallback={<h2>...Loading</h2>}>
+          <Outlet />
+        </Suspense>
       </div>
     </>
   );
