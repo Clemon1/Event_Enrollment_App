@@ -1,4 +1,5 @@
 import "./App.css";
+import { lazy, Suspense } from "react";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -9,8 +10,8 @@ import {
 } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { currentUSer } from "./features/authSlice";
-import Login from "./pages/login";
-import Dashboard from "./pages/Dashboard";
+const Login = lazy(() => import("./pages/login"));
+const Dashboard = lazy(() => import("./pages/Dashboard"));
 import Events from "./pages/Events";
 import Categories from "./pages/Categories";
 import Profile from "./pages/profile";
@@ -20,37 +21,39 @@ function App() {
   const user = useSelector(currentUSer);
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path='/' element={<Root />}>
-        <Route
-          index
-          element={user ? <Navigate to={"dashboard"} /> : <Login />}
-        />
-        <Route
-          path='dashboard'
-          element={user ? <Dashboard /> : <Navigate to={"/"} />}
-        />
-        <Route
-          path='events'
-          element={user ? <Events /> : <Navigate to={"/"} />}
-        />
-        <Route
-          path='createEvent'
-          element={user ? <CreateEvent /> : <Navigate to={"/"} />}
-        />
+      <Suspense fallback={<h1> ...Loading</h1>}>
+        <Route path='/' element={<Root />}>
+          <Route
+            index
+            element={user ? <Navigate to={"dashboard"} /> : <Login />}
+          />
+          <Route
+            path='dashboard'
+            element={user ? <Dashboard /> : <Navigate to={"/"} />}
+          />
+          <Route
+            path='events'
+            element={user ? <Events /> : <Navigate to={"/"} />}
+          />
+          <Route
+            path='createEvent'
+            element={user ? <CreateEvent /> : <Navigate to={"/"} />}
+          />
 
-        <Route
-          path='categories'
-          element={user ? <Categories /> : <Navigate to={"/"} />}
-        />
-        <Route
-          path='createCategories'
-          element={user ? <CreateCategory /> : <Navigate to={"/"} />}
-        />
-        <Route
-          path='profile'
-          element={user ? <Profile /> : <Navigate to={"/"} />}
-        />
-      </Route>,
+          <Route
+            path='categories'
+            element={user ? <Categories /> : <Navigate to={"/"} />}
+          />
+          <Route
+            path='createCategories'
+            element={user ? <CreateCategory /> : <Navigate to={"/"} />}
+          />
+          <Route
+            path='profile'
+            element={user ? <Profile /> : <Navigate to={"/"} />}
+          />
+        </Route>
+      </Suspense>,
     ),
   );
   return (
