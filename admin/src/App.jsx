@@ -26,28 +26,28 @@ function App() {
           element={user ? <Navigate to={"dashboard"} /> : <Login />}
         />
         <Route
-          path='/dashboard'
+          path='dashboard'
           element={user ? <Dashboard /> : <Navigate to={"/"} />}
         />
         <Route
-          path='/events'
+          path='events'
           element={user ? <Events /> : <Navigate to={"/"} />}
         />
         <Route
-          path='/createEvent'
+          path='createEvent'
           element={user ? <CreateEvent /> : <Navigate to={"/"} />}
         />
 
         <Route
-          path='/categories'
+          path='categories'
           element={user ? <Categories /> : <Navigate to={"/"} />}
         />
         <Route
-          path='/createCategories'
+          path='createCategories'
           element={user ? <CreateCategory /> : <Navigate to={"/"} />}
         />
         <Route
-          path='/profile'
+          path='profile'
           element={user ? <Profile /> : <Navigate to={"/"} />}
         />
       </Route>,
