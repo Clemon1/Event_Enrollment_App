@@ -6,7 +6,7 @@ import jwt from "jsonwebtoken";
 export const adminRegister = async (req, res) => {
   try {
     const { email, fullname, password } = req.body;
-    if ((!fullname, !email, !password)) {
+    if (!fullname || !email || !password) {
       return res.status(400).json("Cannot submit empty credentials");
     }
     const existingUser = await User.findOne({ email });

@@ -14,6 +14,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Pending, Success, Rejected } from "../features/authSlice";
+import { apiName } from "../API/api";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -30,7 +31,7 @@ const Login = () => {
     try {
       e.preventDefault();
       dispatch(Pending());
-      const res = await axios.post("http://localhost:4000/admin/login", {
+      const res = await axios.post(`${apiName}/admin/login`, {
         email,
         password,
       });
