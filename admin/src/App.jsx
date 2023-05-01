@@ -12,11 +12,11 @@ import { useSelector } from "react-redux";
 import { currentUSer } from "./features/authSlice";
 const Login = lazy(() => import("./pages/login"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
-import Events from "./pages/Events";
-import Categories from "./pages/Categories";
+const Events = lazy(() => import("./pages/Events"));
+const Categories = lazy(() => import("./pages/Categories"));
 import Profile from "./pages/profile";
-import CreateEvent from "./pages/createEvent";
-import CreateCategory from "./pages/createCategories";
+const CreateEvent = lazy(() => import("./pages/createEvent"));
+const CreateCategory = lazy(() => import("./pages/createCategories"));
 function App() {
   const user = useSelector(currentUSer);
   const router = createBrowserRouter(
