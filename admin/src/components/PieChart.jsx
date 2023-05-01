@@ -86,7 +86,7 @@ export default function ChartPie() {
   };
 
   return (
-    <PieChart className='chart' width={450} height={290} top={"-59px"}>
+    <PieChart className='chart' width={340} height={295}>
       <Pie
         activeIndex={activeIndex}
         activeShape={renderActiveShape}
