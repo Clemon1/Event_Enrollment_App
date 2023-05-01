@@ -23,7 +23,7 @@ function App() {
       <Route path='/' element={<Root />}>
         <Route
           index
-          element={user ? <Navigate to={"/dashboard"} /> : <Login />}
+          element={user ? <Navigate to={"dashboard"} /> : <Login />}
         />
         <Route
           path='/dashboard'
