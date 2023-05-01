@@ -1,1 +1,1 @@
-export const apiName = "https://event-enrollment-app.onrender.com/";
+export const apiName = "https://event-enrollment-app.onrender.com";
