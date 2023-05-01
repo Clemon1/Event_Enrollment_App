@@ -19,6 +19,7 @@ import { apiName } from "../API/api";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setLoading] = useState(false);
   const navigate = useNavigate();
   const body = {
     email,
@@ -30,12 +31,13 @@ const Login = () => {
   const hangleLogin = async (e) => {
     try {
       e.preventDefault();
+      setLoading(true);
       dispatch(Pending());
       const res = await axios.post(`${apiName}/admin/login`, {
         email,
         password,
       });
-
+      setLoading(false);
       dispatch(Success(await res.data));
       toast({
         title: "Logged in Succesfully",
@@ -59,6 +61,7 @@ const Login = () => {
       console.log(error.response.data);
     }
   };
+
   return (
     <Flex
       justifyContent={"center"}
@@ -104,8 +107,12 @@ const Login = () => {
             />
           </FormControl>
           <FormControl>
-            <Button type='submit' bgColor={"bgMain.blue"} width={"100%"}>
-              Submit
+            <Button
+              type='submit'
+              bgColor={"bgMain.blue"}
+              disabled={isLoading}
+              width={"100%"}>
+              {!isLoading ? "Login" : "...Loading"}
             </Button>
           </FormControl>
         </form>
