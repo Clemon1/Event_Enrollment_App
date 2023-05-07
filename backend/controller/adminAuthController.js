@@ -13,7 +13,7 @@ export const adminRegister = async (req, res) => {
     if (existingUser) {
       return res.status(404).json("User already exist");
     }
-    const salt = await bcrypt.genSalt(8);
+    const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(req.body.password, salt);
     const adminUser = new User({
       fullname: req.body.fullname,
