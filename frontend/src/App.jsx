@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Box, ThemeProvider, Typography, createTheme } from "@mui/material";
 import {
   createBrowserRouter,
@@ -9,18 +10,18 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/navbar";
-import Home from "./pages/home";
-import Login from "./pages/login";
-import Register from "./pages/register";
-import Dashboard from "./pages/dashboard";
+const Home = lazy(() => import("./pages/home"));
+const Login = lazy(() => import("./pages/login"));
+const Register = lazy(() => import("./pages/register"));
+const Dashboard = lazy(() => import("./pages/dashboard"));
 import { useSelector } from "react-redux";
 import { currentUSer } from "./features/authSlice";
-import Category from "./pages/category";
-import Profile from "./pages/profile";
-import SingleEvent from "./pages/SingleEvent";
-import Ticket from "./pages/ticket";
-import SingleCategory from "./pages/singleCategory";
-import SearchEvent from "./pages/searchPage";
+const Category = lazy(() => import("./pages/category"));
+const Profile = lazy(() => import("./pages/profile"));
+const SingleEvent = lazy(() => import("./pages/SingleEvent"));
+const Ticket = lazy(() => import("./pages/ticket"));
+const SingleCategory = lazy(() => import("./pages/singleCategory"));
+const SearchEvent = lazy(() => import("./pages/searchPage"));
 import ErorPage from "./pages/error404";
 
 function App() {
@@ -104,10 +105,13 @@ function App() {
 const Root = () => {
   return (
     <>
-      <Navbar />
-      <div>
-        <Outlet />
-      </div>
+      <Suspense fallback={<h2>...Loading</h2>}>
+        <Navbar />
+
+        <div>
+          <Outlet />
+        </div>
+      </Suspense>
     </>
   );
 };
